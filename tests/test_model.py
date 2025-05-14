@@ -106,8 +106,8 @@ class LeagueModelTester:
 
 def main():
     parser = argparse.ArgumentParser(description="Test the trained League of Legends model")
-    parser.add_argument("--model_path", default="../model/league_model_final", help="Path to the trained model")
-    parser.add_argument("--tokenizer_path", default="../model/league_model_final", help="Path to the tokenizer")
+    parser.add_argument("--model_path", default="../model/lol-gpt-medium", help="Path to the trained model")
+    parser.add_argument("--tokenizer_path", default="../model/lol-gpt-medium", help="Path to the tokenizer")
     args = parser.parse_args()
     
     # Initialize tester
@@ -141,7 +141,7 @@ def main():
             "num_return_sequences": 2
         }
     ]
-    # tester.test_sequence_completion(test_cases)
+    tester.test_sequence_completion(test_cases)
 
 if __name__ == "__main__":
     main() 
