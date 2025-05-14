@@ -1,6 +1,10 @@
 import json
 from typing import List, Dict, Any
 from itertools import chain
+import glob
+
+# Find all matching files
+json_files = glob.glob("match_ranked_*.json")
 
 # Constants for token mapping
 SKILL_MAP = {1: "Q", 2: "W", 3: "E", 4: "R"}
@@ -930,17 +934,20 @@ if __name__ == "__main__":
     # print("\n".join(tokens))
 
     # Process multiple matches
-    with open("match_ranked_100_batch.json", 'r') as f:
-    # with open("example_ranked_match.json", 'r') as f:
+    # all_matches = []
+    # for filename in json_files:
+    #     print(f"Processing {filename}...")
+    #     with open(filename, 'r') as f:
+    #         matches = json.load(f)
+    #         all_matches.extend(matches)
 
+    with open("match_ranked_korea.json", 'r') as f:
         matches = json.load(f)
-
     # Keep tokens separated by match
     all_match_tokens = []
     for match in matches:
         rank = normalize_rank(match["rank"])
-        tokens = []
-        tokens.append(f"[RANK_{rank}]")
+        tokens = [f"[RANK_{rank}]"]
         match_tokens = tokenize_match(match["timeline"], tokens)
         all_match_tokens.append(match_tokens)
         
@@ -948,7 +955,7 @@ if __name__ == "__main__":
         print(f"Processed match {match['match_id']} - {len(match_tokens)} tokens")
     
     # Save tokens in training format
-    save_tokens_for_training(all_match_tokens, "processed_tokens.txt")
+    save_tokens_for_training(all_match_tokens, "processed_tokens_kr.txt")
     
     # Print summary
     print(f"\nProcessed {len(all_match_tokens)} matches")
