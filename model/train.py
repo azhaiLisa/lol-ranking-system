@@ -40,7 +40,7 @@ training_args = TrainingArguments(
     learning_rate=5e-4,
     weight_decay=0.01,
     prediction_loss_only=True,
-    fp16=False  # Enable if you’re on GPU with mixed precision support (e.g. Colab)
+    fp16=True  # Enable if you’re on GPU with mixed precision support (e.g. Colab)
 )
 
 data_collator = DataCollatorForLanguageModeling(
