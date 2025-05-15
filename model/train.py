@@ -19,13 +19,11 @@ model.resize_token_embeddings(len(hf_tokenizer))
 
 
 dataset = load_dataset("text", data_files={"train": "../data/processed_tokens.txt"})
+split_dataset = dataset["train"].train_test_split(test_size=0.1, seed=42)
+train_dataset = split_dataset["train"]
+eval_dataset = split_dataset["test"]
 
-# def tokenize_function(example):
-#     return hf_tokenizer(example["text"], truncation=True, padding="max_length", max_length=512)
 
-# tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=["text"])
-
-# Sliding window tokenization parameters
 block_size = 512
 stride = 256
 
@@ -49,7 +47,13 @@ def sliding_tokenizer(batch):
 
 
 # Apply sliding tokenizer
-tokenized_dataset = dataset["train"].map(
+tokenized_train = train_dataset.map(
+    sliding_tokenizer,
+    batched=True,
+    remove_columns=["text"]
+)
+
+tokenized_eval = eval_dataset.map(
     sliding_tokenizer,
     batched=True,
     remove_columns=["text"]
@@ -63,23 +67,27 @@ data_collator = DataCollatorForLanguageModeling(
 training_args = TrainingArguments(
     output_dir="./model_checkpoints",
     overwrite_output_dir=True,
-    num_train_epochs=1,
+    num_train_epochs=3,
     per_device_train_batch_size=2,
     save_steps=500,
     save_total_limit=2,
+    logging_dir="./logs",
     logging_steps=100,
     warmup_steps=50,
+    eval_strategy="epoch",
+    save_strategy="epoch",
     learning_rate=5e-4,
     weight_decay=0.01,
     prediction_loss_only=True,
-    fp16=True  # Enable if you're using a GPU with FP16 support
+    fp16=True  # Enable if using a GPU with FP16 support
 )
 
 
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_dataset,
+    train_dataset=tokenized_train,
+    eval_dataset=tokenized_eval,
     data_collator=data_collator,
 )
 
