@@ -94,3 +94,11 @@ trainer = Trainer(
 trainer.train()
 trainer.save_model("./lol-gpt-medium")
 hf_tokenizer.save_pretrained("./lol-gpt-medium")
+
+with open("../data/train_tokens.txt", "w") as f:
+    for ex in train_dataset:
+        f.write(ex["text"] + "\n")
+
+with open("../data/eval_tokens.txt", "w") as f:
+    for ex in eval_dataset:
+        f.write(ex["text"] + "\n")
