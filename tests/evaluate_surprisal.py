@@ -80,7 +80,7 @@ class SlidingWindowSurprisalEvaluator:
 if __name__ == "__main__":
     evaluator = SlidingWindowSurprisalEvaluator("../model/lol-gpt-medium", "../model/lol-gpt-medium")
 
-    with open("../data/processed_tokens.txt") as f:
+    with open("../data/eval_tokens.txt") as f:
         sample_text = f.readlines()[0]  # pick first match
 
     result = evaluator.compute_surprisal(sample_text)
