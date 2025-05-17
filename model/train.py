@@ -1,6 +1,10 @@
 from transformers import GPT2Config, GPT2LMHeadModel
 from transformers import PreTrainedTokenizerFast, Trainer, TrainingArguments, DataCollatorForLanguageModeling
 from datasets import load_dataset
+import torch
+import torch.nn.functional as F
+import numpy as np
+import matplotlib.pyplot as plt
 
 hf_tokenizer = PreTrainedTokenizerFast.from_pretrained("./my_tokenizer")
 
@@ -26,6 +30,21 @@ eval_dataset = split_dataset["test"]
 
 block_size = 512
 stride = 256
+
+def check_sample_output(model, tokenizer, title=""):
+    model.eval()
+    sample_text = "sample test sequence"
+    inputs = tokenizer(sample_text, return_tensors="pt", padding="max_length", max_length=64, truncation=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        probs = F.softmax(outputs.logits[0, -1], dim=-1)
+        entropy = -(probs * probs.log()).sum().item()
+        topk = torch.topk(probs, k=5)
+        print(f"\n== {title} ==")
+        print(f"Top-5 token probs: {topk.values.tolist()}")
+        print(f"Top-5 tokens: {[tokenizer.decode([i]) for i in topk.indices.tolist()]}")
+        print(f"Entropy of prediction: {entropy:.4f}")
+        print(f"Predicted token: {tokenizer.decode([torch.argmax(probs)])}")
 
 def sliding_tokenizer(batch):
     all_input_ids = []
@@ -91,9 +110,47 @@ trainer = Trainer(
     data_collator=data_collator,
 )
 
+# Check model output before training
+print("Before training:")
+check_sample_output(model, hf_tokenizer, title="Before Training")
+
 trainer.train()
+
 trainer.save_model("./lol-gpt-medium")
 hf_tokenizer.save_pretrained("./lol-gpt-medium")
+
+# Check model output after training
+print("After training:")
+check_sample_output(model, hf_tokenizer, title="After Training")
+
+
+# plotting loss graph
+logs = trainer.state.log_history
+train_steps, train_losses = [], []
+eval_steps, eval_losses = [], []
+
+for entry in logs:
+    if 'loss' in entry and 'step' in entry:
+        train_steps.append(entry['step'])
+        train_losses.append(entry['loss'])
+    if 'eval_loss' in entry and 'step' in entry:
+        eval_steps.append(entry['step'])
+        eval_losses.append(entry['eval_loss'])
+
+plt.figure(figsize=(10,5))
+plt.plot(train_steps, train_losses, label="Training Loss")
+plt.plot(eval_steps, eval_losses, label="Validation Loss")
+plt.xlabel("Steps")
+plt.ylabel("Loss")
+plt.legend()
+plt.grid(True)
+plt.title("Training and Validation Loss")
+plt.tight_layout()
+plt.savefig("loss_plot.png")
+plt.show()
+
+with open("train_logs.json", "w") as f:
+    json.dump(trainer.state.log_history, f)
 
 with open("../data/train_tokens.txt", "w") as f:
     for ex in train_dataset:
