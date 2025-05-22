@@ -8,12 +8,10 @@ from itertools import chain
 import numpy as np
 
 
-dataset = load_dataset("text", data_files={"train": "../data/processed_tokens.txt"})
-# dataset = load_dataset("text", data_files={"train": "../data/train_tokens.txt"})
-# eval_dataset = load_dataset("text", data_files={"validation": "../data/eval_tokens.txt"})["validation"]
+eval_dataset = load_dataset("text", data_files={"validation": "../data/eval_tokens.txt"})["validation"]
 
-model = GPT2LMHeadModel.from_pretrained("../model/lol-gpt-medium").cpu().eval()
-tokenizer = PreTrainedTokenizerFast.from_pretrained("../model/lol-gpt-medium")
+model = GPT2LMHeadModel.from_pretrained("../model/lol-model-scratch").cuda().eval()
+tokenizer = PreTrainedTokenizerFast.from_pretrained("../model/lol-model-scratch")
 assert tokenizer.vocab_size == model.config.vocab_size
 
 def split_into_windows(text, tokenizer, block_size=512, stride=256):
@@ -110,7 +108,8 @@ def extract_single_token_probs_aligned(text, model, tokenizer, token_str, block_
 
             outputs = model(input_ids=input_tensor, attention_mask=mask_tensor)
             probs = F.softmax(outputs.logits, dim=-1)[0]  # shape: [seq_len, vocab_size]
-            token_probs = probs[:-1, token_id]  # skip final prediction position
+            # token_probs = probs[:-1, token_id]  # skip final prediction position
+            token_probs = probs[:-1, token_id]
 
             # Map window to timeline
             start = w_idx * stride
@@ -166,10 +165,10 @@ def plot_event_prob_trends(event_probs):
 
 # === Pick one example from the eval set ===
 # sample_text = dataset["train"][0]["text"]
-# sample_text = random.choice(eval_dataset)["text"]
-sample_text = random.choice(dataset["train"])["text"]
+sample_text = random.choice(eval_dataset)["text"]
+# sample_text = random.choice(dataset["train"])["text"]
 input_ids = tokenizer(sample_text, return_tensors="pt")["input_ids"]
-events_to_track = ["[ITEM_BUY]", "[KILL]", "[GAME_END]"]
+# events_to_track = ["[ITEM_BUY]", "[KILL]", "[GAME_END]"]
 # event_probs = extract_event_probabilities_sliding(sample_text, model, tokenizer, events_to_track)
 
 # print(input_ids[0])
@@ -178,19 +177,23 @@ vocab_size = tokenizer.vocab_size
 if torch.any(input_ids >= vocab_size):
     raise ValueError(f"Input contains token IDs >= vocab size ({vocab_size})")
 
-item_probs = extract_pattern_probs_aligned(sample_text, model, tokenizer, "[ITEM_BUY]", 3)
-kill_probs = extract_pattern_probs_aligned(sample_text, model, tokenizer, "[KILL]", 3)
+# item_probs = extract_pattern_probs_aligned(sample_text, model, tokenizer, "[ITEM_BUY]", 3)
+# kill_probs = extract_pattern_probs_aligned(sample_text, model, tokenizer, "[KILL]", 3)
+game_start_probs = extract_single_token_probs_aligned(sample_text, model, tokenizer, "[GAME_START]")
+frame_probs = extract_single_token_probs_aligned(sample_text, model, tokenizer, "[FRAME]")
 game_end_probs = extract_single_token_probs_aligned(sample_text, model, tokenizer, "[GAME_END]")
 
 # === Plot the trends ===
 # plot_event_prob_trends(item_probs)
-# plot_event_prob_trends(event_probs)
-# plot_event_prob_trends(game_end_probs)
+# plot_event_prob_trends(kill_probs)
+plot_event_prob_trends(game_start_probs)
+plot_event_prob_trends(frame_probs)
+plot_event_prob_trends(game_end_probs)
 # plot_normalised(game_end_probs)
-plot_event_prob_trends_normalized(
-    {**item_probs, **kill_probs, **game_end_probs},
-    method="zscore"  # or "zscore"
-)
+# plot_event_prob_trends_normalized(
+#     {**item_probs, **kill_probs, **game_end_probs},
+#     method="zscore"  # or "zscore"
+# )
 
 
 
