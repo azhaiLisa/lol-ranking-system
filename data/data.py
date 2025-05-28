@@ -1,100 +1,67 @@
 import requests
 import json
-from datetime import datetime
 import time
+import pickle
+import atexit
 
-API_KEY = 'RGAPI-c60af6b3-1f39-4cb4-8882-e4b44bcb8a88'
-headers = {'X-Riot-Token': API_KEY}
+def save_progress():
+    with open("matches.pkl", "wb") as f:
+        pickle.dump(all_timelines, f)
+    with open("seen_ids.pkl", "wb") as f:
+        pickle.dump({
+            "seen_match_ids": seen_match_ids,
+            "seen_puuids": seen_puuids
+        }, f)
+    print("Progress saved.")
 
-# PLATFORM_REGIONS = ['na1', 'euw1', 'eun1', 'kr', 'jp1', 'oc1', 'br1', 'la1', 'la2', 'tr1', 'ru']
-# REGIONAL_ROUTES = {
-#     'na1': 'americas',
-#     'br1': 'americas',
-#     'la1': 'americas',
-#     'la2': 'americas',
-#     'euw1': 'europe',
-#     'eun1': 'europe',
-#     'tr1': 'europe',
-#     'ru': 'europe',
-#     'kr': 'asia',
-#     'jp1': 'asia',
-#     'oc1': 'sea'  # Optional, depending on data availability
-# }
+# Register auto-save on exit
+atexit.register(save_progress)
 
-# def get_urls(platform_region):
-#     regional_route = REGIONAL_ROUTES[platform_region]
-#     return {
-#         "FEATURED_GAMES_URL": f'https://{platform_region}.api.riotgames.com/lol/spectator/v5/featured-games',
-#         "MATCH_LIST_URL": f'https://{regional_route}.api.riotgames.com/lol/match/v5/matches/by-puuid/{{puuid}}/ids',
-#         "MATCH_DETAILS_URL": f'https://{regional_route}.api.riotgames.com/lol/match/v5/matches/{{matchId}}/timeline',
-#         "MATCH_METADATA_URL": f'https://{regional_route}.api.riotgames.com/lol/match/v5/matches/{{matchId}}',
-#         "SUMMONER_INFO_URL": f'https://{platform_region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{{puuid}}',
-#         "RANKED_INFO_URL": f'https://{platform_region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{{summonerId}}'
-#     }
+API_KEY = 'RGAPI-0468e0aa-b99b-42ff-93d9-aceec86e59dc'
+HEADERS = {'X-Riot-Token': API_KEY}
 
-# FEATURED_GAMES_URL = 'https://na1.api.riotgames.com/lol/spectator/v5/featured-games'
-# MATCH_LIST_URL = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids'
-# MATCH_DETAILS_URL = 'https://americas.api.riotgames.com/lol/match/v5/matches/{matchId}/timeline'
-# MATCH_METADATA_URL = 'https://americas.api.riotgames.com/lol/match/v5/matches/{matchId}'
-# SUMMONER_INFO_URL = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}'
-# RANKED_INFO_URL = 'https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/{summonerId}'
+# Match targets
+TOTAL_MATCHES = 20000
 
-# FEATURED_GAMES_URL = 'https://euw1.api.riotgames.com/lol/spectator/v5/featured-games'
-# MATCH_LIST_URL = 'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids'
-# MATCH_DETAILS_URL = 'https://europe.api.riotgames.com/lol/match/v5/matches/{matchId}/timeline'
-# MATCH_METADATA_URL = 'https://europe.api.riotgames.com/lol/match/v5/matches/{matchId}'
-# SUMMONER_INFO_URL = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}'
-# RANKED_INFO_URL = 'https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/{summonerId}'
+REGION_CONFIG = {
+    'kr':   {'route': 'asia',     'weight': 1.8},
+    'euw1': {'route': 'europe',   'weight': 1.6},
+    'na1':  {'route': 'americas', 'weight': 1.2},
+    'eun1': {'route': 'europe',   'weight': 1.0},
+    'br1':  {'route': 'americas', 'weight': 0.9},
+    'jp1':  {'route': 'asia',     'weight': 0.6},
+    'la1':  {'route': 'americas', 'weight': 0.5},
+    'la2':  {'route': 'americas', 'weight': 0.5},
+    'tr1':  {'route': 'europe',   'weight': 0.5},
+    'ru':   {'route': 'europe',   'weight': 0.4},
+}
 
-FEATURED_GAMES_URL = 'https://kr.api.riotgames.com/lol/spectator/v5/featured-games'
-MATCH_LIST_URL = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids'
-MATCH_DETAILS_URL = 'https://asia.api.riotgames.com/lol/match/v5/matches/{matchId}/timeline'
-MATCH_METADATA_URL = 'https://asia.api.riotgames.com/lol/match/v5/matches/{matchId}'
-SUMMONER_INFO_URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}'
-RANKED_INFO_URL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{summonerId}'
+def get_urls(region, route):
+    return {
+        "FEATURED_GAMES_URL": f'https://{region}.api.riotgames.com/lol/spectator/v5/featured-games',
+        "MATCH_LIST_URL": f'https://{route}.api.riotgames.com/lol/match/v5/matches/by-puuid/{{puuid}}/ids',
+        "MATCH_DETAILS_URL": f'https://{route}.api.riotgames.com/lol/match/v5/matches/{{matchId}}/timeline',
+        "MATCH_METADATA_URL": f'https://{route}.api.riotgames.com/lol/match/v5/matches/{{matchId}}',
+        "SUMMONER_INFO_URL": f'https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{{puuid}}',
+        "RANKED_INFO_URL": f'https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{{summonerId}}'
+    }
 
-def safe_request(url, headers):
-    while True:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return response.json()
-        elif response.status_code == 429:
-            retry_after = int(response.headers.get('Retry-After', 120))
-            print(f"Rate limit hit. Sleeping for {retry_after} seconds...")
-            time.sleep(retry_after)
-        else:
-            print(f"Request failed with status {response.status_code}: {response.text}")
-            response.raise_for_status()
-
-
-def get_featured_games():
-    return safe_request(FEATURED_GAMES_URL, headers)
-
-
-def get_match_ids_by_puuid(puuid):
-    url = MATCH_LIST_URL.format(puuid=puuid)
-    return safe_request(url, headers)
-
-
-def get_match_timeline(match_id):
-    url = MATCH_DETAILS_URL.format(matchId=match_id)
-    return safe_request(url, headers)
-
-
-def get_match_metadata(match_id):
-    url = MATCH_METADATA_URL.format(matchId=match_id)
-    return safe_request(url, headers)
-
-
-def get_summoner_info(puuid):
-    url = SUMMONER_INFO_URL.format(puuid=puuid)
-    return safe_request(url, headers)
-
-
-def get_ranked_info(summoner_id):
-    url = RANKED_INFO_URL.format(summonerId=summoner_id)
-    return safe_request(url, headers)
-
+def safe_request(url, retries=3, backoff=5):
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=10)
+            if response.status_code == 200:
+                return response.json()
+            elif response.status_code == 429:
+                print("[Rate Limit] Hit 429, sleeping for 30s...")
+                time.sleep(30)
+            else:
+                print(f"[HTTP {response.status_code}] {url}")
+                break
+        except requests.exceptions.RequestException as e:
+            print(f"[Connection Error] {e} — Retrying in {backoff}s...")
+            time.sleep(backoff)
+    return None
 
 def extract_solo_rank(ranked_info):
     for entry in ranked_info:
@@ -102,85 +69,107 @@ def extract_solo_rank(ranked_info):
             return f"{entry['tier']} {entry['rank']}"
     return "UNRANKED"
 
-
 def save_to_json(data, filename):
     with open(filename, 'w') as f:
         json.dump(data, f, indent=4)
-    print(f"Data saved to {filename}")
+    print(f"Saved {len(data)} matches to {filename}")
 
-
-# Main logic
+# ---- MAIN ----
 try:
-    featured_games = get_featured_games()
-    print("Featured Games:")
-
     all_timelines = []
+    total_weight = sum(cfg['weight'] for cfg in REGION_CONFIG.values())
+    region_targets = {
+        region: int((cfg['weight'] / total_weight) * TOTAL_MATCHES)
+        for region, cfg in REGION_CONFIG.items()
+    }
+
     seen_puuids = set()
+    seen_match_ids = set()
 
-    processed_count = 0
-    skipped_unranked = 0
-    skipped_nonranked_matches = 0
+    for region, cfg in REGION_CONFIG.items():
+        route = cfg['route']
+        urls = get_urls(region, route)
+        target = region_targets[region]
+        print(f"\n=== Collecting from {region} ({route}) | Target: {target} matches ===")
 
-    NUM_ITERATIONS = 100  # Each batch gets around 100 games
-    for i in range(NUM_ITERATIONS):
-        print(f"\n=== Featured Game Batch {i+1} ===")
-        featured_games = get_featured_games()
-        
-        for game in featured_games['gameList']:
-            for participant in game['participants']:
-                puuid = participant['puuid']
-                if puuid in seen_puuids:
-                    continue
-                seen_puuids.add(puuid)
+        match_count, skipped_unranked, skipped_nonranked = 0, 0, 0
 
-                print(f"\nFetching data for player with PUUID: {puuid}")
-                try:
-                    # Get summoner info and ranked info
-                    summoner = get_summoner_info(puuid)
-                    ranked_info = get_ranked_info(summoner['id'])
+        while match_count < target:
+            featured = safe_request(urls["FEATURED_GAMES_URL"])
+            if not featured:
+                break
+
+            for game in featured.get("gameList", []):
+                for p in game["participants"]:
+                    puuid = p["puuid"]
+                    if puuid in seen_puuids:
+                        continue
+                    seen_puuids.add(puuid)
+
+                    summoner = safe_request(urls["SUMMONER_INFO_URL"].format(puuid=puuid))
+                    if not summoner:
+                        continue
+
+                    ranked_info = safe_request(urls["RANKED_INFO_URL"].format(summonerId=summoner["id"]))
+                    if not ranked_info:
+                        continue
+
                     rank = extract_solo_rank(ranked_info)
-
                     if rank == "UNRANKED":
-                        print(f"Skipping player {puuid} — Unranked")
                         skipped_unranked += 1
                         continue
 
-                    processed_count += 1
-                    print(f"Player Rank: {rank}")
+                    match_ids = safe_request(urls["MATCH_LIST_URL"].format(puuid=puuid))
+                    if not match_ids:
+                        continue
 
-                    # Fetch match IDs
-                    match_ids = get_match_ids_by_puuid(puuid)
-                    print(f"Found {len(match_ids)} matches for PUUID: {puuid}")
-
-                    for match_id in match_ids[:10]:  # Limit to first 10 matches
-                        metadata = get_match_metadata(match_id)
-                        queue_id = metadata['info'].get('queueId', -1)
-
-                        if queue_id != 420:
-                            print(f"Skipping match {match_id} — Not Ranked Solo/Duo (queueId={queue_id})")
-                            skipped_nonranked_matches += 1
+                    for match_id in match_ids[:10]:
+                        if match_id in seen_match_ids:
                             continue
 
-                        timeline = get_match_timeline(match_id)
+                        metadata = safe_request(urls["MATCH_METADATA_URL"].format(matchId=match_id))
+                        if not metadata or metadata['info'].get('queueId') != 420:
+                            skipped_nonranked += 1
+                            continue
+
+                        timeline = safe_request(urls["MATCH_DETAILS_URL"].format(matchId=match_id))
+                        if not timeline:
+                            continue
+
+                        participants = metadata['info'].get('participants', [])
+                        participant_roles = [{
+                            "summonerName": p.get('summonerName', ''),
+                            "puuid": p.get('puuid', ''),
+                            "championName": p.get('championName', ''),
+                            "lane": p.get('lane', ''),
+                            "role": p.get('role', '')
+                        } for p in participants]
+
                         all_timelines.append({
                             "match_id": match_id,
                             "rank": rank,
                             "timeline": timeline,
-                            "puuid": puuid
+                            "metadata": metadata,
+                            "participant_roles": participant_roles,
+                            "puuid": puuid,
+                            "region": region
                         })
+                        seen_match_ids.add(match_id)
+                        match_count += 1
 
-                except requests.exceptions.RequestException as e:
-                    print(f"Error fetching data for PUUID {puuid}: {e}")
+                        print(f"[{region}] Saved match #{match_count}")
+                        
+                        if match_count >= target:
+                            break
+                    if match_count >= target:
+                        break
+                if match_count >= target:
+                    break
 
-    # Save all timeline data
-    save_to_json(all_timelines, filename="match_ranked_korea.json")
+        print(f"[{region}] DONE — {match_count} matches, {skipped_unranked} unranked players, {skipped_nonranked} non-solo matches.")
 
-    # Print summary
-    print("\n--- Summary ---")
-    print(f"Total players processed: {processed_count}")
-    print(f"Total players skipped (unranked): {skipped_unranked}")
-    print(f"Total matches skipped (not ranked solo): {skipped_nonranked_matches}")
-    print(f"Total ranked solo matches saved: {len(all_timelines)}")
-
-except requests.exceptions.RequestException as e:
-    print(f"HTTP Request failed: {e}")
+    save_to_json(all_timelines, "match_ranked_multiregion.json")
+except Exception as e:
+    print(f"[FATAL] Crash: {e}")
+    save_progress()
+    raise

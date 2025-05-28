@@ -645,6 +645,43 @@ OBJECTIVE_WEIGHTS = {
     "NEXUS_TURRET": 5.0
 }
 
+def build_pid_role_map_by_team_position(match: Dict) -> Dict[int, str]:
+    """Maps participantId to role like MIDDLE_B or JUNGLE_R using teamPosition."""
+    pid_role_map = {}
+
+    participants = match["metadata"]["info"].get("participants", [])
+    for p in participants:
+        pid = p.get("participantId")
+        position = p.get("teamPosition", "UNKNOWN").upper()
+        if not pid or position == "UNKNOWN":
+            continue
+        side = "B" if pid <= 5 else "R"
+        pid_role_map[pid] = f"{position}_{side}"
+
+    return pid_role_map
+
+
+def replace_pid_with_roles(tokens: List[Any], pid_role_map: Dict[int, str]) -> List[str]:
+    """Replaces [P1]...[P10] with their corresponding roles like [TOP_B]."""
+    def flatten_tokens(tokens):
+        for token in tokens:
+            if isinstance(token, list):
+                yield from flatten_tokens(token)
+            else:
+                yield token
+
+    new_tokens = []
+    for token in flatten_tokens(tokens):
+        replaced_token = token
+        for pid in range(1, 11):
+            pid_tag = f"[P{pid}]"
+            if pid_tag in replaced_token:
+                replaced_token = replaced_token.replace(pid_tag, f"[{pid_role_map.get(pid, f'P{pid}')}]")
+        new_tokens.append(replaced_token)
+    return new_tokens
+
+
+
 # participant state snapshots at each 60s interval
 def process_frame_states(frame: Dict) -> List[str]:
     """Process participant states for each frame"""
@@ -861,18 +898,16 @@ def normalize_rank(full_rank: str) -> str:
     """Extracts the rank tier from a full rank like 'DIAMOND I' or 'GOLD IV'."""
     return full_rank.split()[0] if full_rank and isinstance(full_rank, str) else "UNRANKED"
 
-def tokenize_match(timeline_json: Dict[str, Any], tokens) -> List[str]:
-    """Convert a match into a sequence of tokens."""
+def tokenize_match(timeline_json: Dict[str, Any], tokens: List[str]) -> List[str]:
     tokens.append("[GAME_START]")
-    
-    last_kill_time = 0  # Track the timestamp of the last kill
-    
+    last_kill_time = 0
+
     for frame in timeline_json["info"]["frames"]:
         tokens.append("[FRAME]")
         for event in frame.get("events", []):
             event_type = event.get("type")
             timestamp = event.get("timestamp", 0)
-            
+
             if event_type == "SKILL_LEVEL_UP":
                 tokens.append(process_skill_level_up(event))
             elif event_type == "ITEM_UNDO":
@@ -882,26 +917,22 @@ def tokenize_match(timeline_json: Dict[str, Any], tokens) -> List[str]:
             elif event_type in ["WARD_PLACED", "WARD_KILL"]:
                 tokens.append(process_ward_interaction(event))
             elif event_type == "CHAMPION_KILL":
-                # Process combat events and extend tokens list
-                combat_tokens = process_combat(event)
-                tokens.extend(combat_tokens)
+                tokens.extend(process_combat(event))  # already returns a list
                 last_kill_time = timestamp
             elif event_type == "CHAMPION_SPECIAL_KILL":
-                # Only process special kills if they're close to the last kill
-                # This ensures we're marking the correct kill as special
-                if timestamp - last_kill_time < 1000:  # Within 1 second of the last kill
+                if timestamp - last_kill_time < 1000:
                     tokens.append(process_special_kill(event))
             elif event_type == "ELITE_MONSTER_KILL":
-                tokens.append(process_elite_monster(event))
+                tokens.extend(process_elite_monster(event))  # already returns a list
             elif event_type == "BUILDING_KILL":
-                tokens.append(process_building(event))
+                tokens.extend(process_building(event))  # already returns a list
             elif event_type == "TURRET_PLATE_DESTROYED":
                 tokens.append(process_turret_plate(event))
             elif event_type == "LEVEL_UP":
                 tokens.append(process_level_up(event))
             elif event_type == "GAME_END":
                 tokens.append(process_game_state(event))
-    
+
     return tokens
 
 def process_match_file(file_path: str) -> List[str]:
@@ -941,7 +972,7 @@ if __name__ == "__main__":
     #         matches = json.load(f)
     #         all_matches.extend(matches)
 
-    with open("match_ranked_korea.json", 'r') as f:
+    with open("matches_converted.json", 'r') as f:
         matches = json.load(f)
     # Keep tokens separated by match
     all_match_tokens = []
@@ -949,13 +980,18 @@ if __name__ == "__main__":
         rank = normalize_rank(match["rank"])
         tokens = [f"[RANK_{rank}]"]
         match_tokens = tokenize_match(match["timeline"], tokens)
+
+        # Robust role mapping and replacement
+        pid_role_map = build_pid_role_map_by_team_position(match)
+        # print(pid_role_map)
+        match_tokens = replace_pid_with_roles(match_tokens, pid_role_map)
+
+
         all_match_tokens.append(match_tokens)
-        
-        # Print progress
         print(f"Processed match {match['match_id']} - {len(match_tokens)} tokens")
     
     # Save tokens in training format
-    save_tokens_for_training(all_match_tokens, "processed_tokens_kr.txt")
+    save_tokens_for_training(all_match_tokens, "processed_tokens.txt")
     
     # Print summary
     print(f"\nProcessed {len(all_match_tokens)} matches")
