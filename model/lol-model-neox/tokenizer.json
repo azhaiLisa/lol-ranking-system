@@ -1,6 +1,11 @@
 {
   "version": "1.0",
-  "truncation": null,
+  "truncation": {
+    "direction": "Right",
+    "max_length": 8192,
+    "strategy": "LongestFirst",
+    "stride": 0
+  },
   "padding": null,
   "added_tokens": [
     {
@@ -3299,7 +3304,7 @@
     },
     {
       "id": 366,
-      "content": "[BOT_LANE]",
+      "content": "[BOTTOM_B]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3308,7 +3313,7 @@
     },
     {
       "id": 367,
-      "content": "[BOUNTY]",
+      "content": "[BOTTOM_R]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3317,7 +3322,7 @@
     },
     {
       "id": 368,
-      "content": "[BOUNTY_OF_WORLDS]",
+      "content": "[BOT_LANE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3326,7 +3331,7 @@
     },
     {
       "id": 369,
-      "content": "[BRAMBLE_VEST]",
+      "content": "[BOUNTY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3335,7 +3340,7 @@
     },
     {
       "id": 370,
-      "content": "[BUILDING_DESTROY]",
+      "content": "[BOUNTY_OF_WORLDS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3344,7 +3349,7 @@
     },
     {
       "id": 371,
-      "content": "[BUILDING_PLATE]",
+      "content": "[BRAMBLE_VEST]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3353,7 +3358,7 @@
     },
     {
       "id": 372,
-      "content": "[B_F_SWORD]",
+      "content": "[BUILDING_DESTROY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3362,7 +3367,7 @@
     },
     {
       "id": 373,
-      "content": "[CATALYST_OF_AEONS]",
+      "content": "[BUILDING_PLATE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3371,7 +3376,7 @@
     },
     {
       "id": 374,
-      "content": "[CAULFIELDS_WARHAMMER]",
+      "content": "[B_F_SWORD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3380,7 +3385,7 @@
     },
     {
       "id": 375,
-      "content": "[CELESTIAL_OPPOSITION]",
+      "content": "[CATALYST_OF_AEONS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3389,7 +3394,7 @@
     },
     {
       "id": 376,
-      "content": "[CHAINLACED_CRUSHERS]",
+      "content": "[CAULFIELDS_WARHAMMER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3398,7 +3403,7 @@
     },
     {
       "id": 377,
-      "content": "[CHAIN_VEST]",
+      "content": "[CELESTIAL_OPPOSITION]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3407,7 +3412,7 @@
     },
     {
       "id": 378,
-      "content": "[CHEMPUNK_CHAINSWORD]",
+      "content": "[CHAINLACED_CRUSHERS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3416,7 +3421,7 @@
     },
     {
       "id": 379,
-      "content": "[CHEMTECH_DRAGON]",
+      "content": "[CHAIN_VEST]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3425,7 +3430,7 @@
     },
     {
       "id": 380,
-      "content": "[CLOAK_OF_AGILITY]",
+      "content": "[CHEMPUNK_CHAINSWORD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3434,7 +3439,7 @@
     },
     {
       "id": 381,
-      "content": "[CLOTH_ARMOR]",
+      "content": "[CHEMTECH_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3443,7 +3448,7 @@
     },
     {
       "id": 382,
-      "content": "[CONTROL]",
+      "content": "[CLOAK_OF_AGILITY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3452,7 +3457,7 @@
     },
     {
       "id": 383,
-      "content": "[CONTROL_WARD]",
+      "content": "[CLOTH_ARMOR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3461,7 +3466,7 @@
     },
     {
       "id": 384,
-      "content": "[COSMIC_DRIVE]",
+      "content": "[CONTROL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3470,7 +3475,7 @@
     },
     {
       "id": 385,
-      "content": "[CRIMSON_LUCIDITY]",
+      "content": "[CONTROL_WARD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3479,7 +3484,7 @@
     },
     {
       "id": 386,
-      "content": "[CRYPTBLOOM]",
+      "content": "[COSMIC_DRIVE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3488,7 +3493,7 @@
     },
     {
       "id": 387,
-      "content": "[CRYSTALLINE_BRACER]",
+      "content": "[CRIMSON_LUCIDITY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3497,7 +3502,7 @@
     },
     {
       "id": 388,
-      "content": "[CULL]",
+      "content": "[CRYPTBLOOM]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3506,7 +3511,7 @@
     },
     {
       "id": 389,
-      "content": "[DAGGER]",
+      "content": "[CRYSTALLINE_BRACER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3515,7 +3520,7 @@
     },
     {
       "id": 390,
-      "content": "[DARK_SEAL]",
+      "content": "[CULL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3524,7 +3529,7 @@
     },
     {
       "id": 391,
-      "content": "[DAWNCORE]",
+      "content": "[DAGGER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3533,7 +3538,7 @@
     },
     {
       "id": 392,
-      "content": "[DEAD_MANS_PLATE]",
+      "content": "[DARK_SEAL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3542,7 +3547,7 @@
     },
     {
       "id": 393,
-      "content": "[DEATHS_DANCE]",
+      "content": "[DAWNCORE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3551,7 +3556,7 @@
     },
     {
       "id": 394,
-      "content": "[DORANS_BLADE]",
+      "content": "[DEAD_MANS_PLATE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3560,7 +3565,7 @@
     },
     {
       "id": 395,
-      "content": "[DORANS_RING]",
+      "content": "[DEATHS_DANCE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3569,7 +3574,7 @@
     },
     {
       "id": 396,
-      "content": "[DORANS_SHIELD]",
+      "content": "[DORANS_BLADE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3578,7 +3583,7 @@
     },
     {
       "id": 397,
-      "content": "[DREAM_MAKER]",
+      "content": "[DORANS_RING]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3587,7 +3592,7 @@
     },
     {
       "id": 398,
-      "content": "[EARTH_DRAGON]",
+      "content": "[DORANS_SHIELD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3596,7 +3601,7 @@
     },
     {
       "id": 399,
-      "content": "[ECHOES_OF_HELIA]",
+      "content": "[DREAM_MAKER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3605,7 +3610,7 @@
     },
     {
       "id": 400,
-      "content": "[ECLIPSE]",
+      "content": "[EARTH_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3614,7 +3619,7 @@
     },
     {
       "id": 401,
-      "content": "[EDGE_OF_NIGHT]",
+      "content": "[ECHOES_OF_HELIA]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3623,7 +3628,7 @@
     },
     {
       "id": 402,
-      "content": "[ELDER_DRAGON]",
+      "content": "[ECLIPSE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3632,7 +3637,7 @@
     },
     {
       "id": 403,
-      "content": "[ELIXIR_OF_AVARICE]",
+      "content": "[EDGE_OF_NIGHT]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3641,7 +3646,7 @@
     },
     {
       "id": 404,
-      "content": "[ELIXIR_OF_FORCE]",
+      "content": "[ELDER_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3650,7 +3655,7 @@
     },
     {
       "id": 405,
-      "content": "[ELIXIR_OF_IRON]",
+      "content": "[ELIXIR_OF_AVARICE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3659,7 +3664,7 @@
     },
     {
       "id": 406,
-      "content": "[ELIXIR_OF_SKILL]",
+      "content": "[ELIXIR_OF_FORCE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3668,7 +3673,7 @@
     },
     {
       "id": 407,
-      "content": "[ELIXIR_OF_SORCERY]",
+      "content": "[ELIXIR_OF_IRON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3677,7 +3682,7 @@
     },
     {
       "id": 408,
-      "content": "[ELIXIR_OF_WRATH]",
+      "content": "[ELIXIR_OF_SKILL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3686,7 +3691,7 @@
     },
     {
       "id": 409,
-      "content": "[EMPTY]",
+      "content": "[ELIXIR_OF_SORCERY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3695,7 +3700,7 @@
     },
     {
       "id": 410,
-      "content": "[ESSENCE_REAVER]",
+      "content": "[ELIXIR_OF_WRATH]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3704,7 +3709,7 @@
     },
     {
       "id": 411,
-      "content": "[EXECUTIONERS_CALLING]",
+      "content": "[EMPTY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3713,7 +3718,7 @@
     },
     {
       "id": 412,
-      "content": "[EXPERIMENTAL_HEXPLATE]",
+      "content": "[ESSENCE_REAVER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3722,7 +3727,7 @@
     },
     {
       "id": 413,
-      "content": "[EYE_OF_THE_HERALD]",
+      "content": "[EXECUTIONERS_CALLING]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3731,7 +3736,7 @@
     },
     {
       "id": 414,
-      "content": "[FAERIE_CHARM]",
+      "content": "[EXPERIMENTAL_HEXPLATE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3740,7 +3745,7 @@
     },
     {
       "id": 415,
-      "content": "[FARSIGHT_ALTERATION]",
+      "content": "[EYE_OF_THE_HERALD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3749,7 +3754,7 @@
     },
     {
       "id": 416,
-      "content": "[FATED_ASHES]",
+      "content": "[FAERIE_CHARM]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3758,7 +3763,7 @@
     },
     {
       "id": 417,
-      "content": "[FIENDISH_CODEX]",
+      "content": "[FARSIGHT_ALTERATION]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3767,7 +3772,7 @@
     },
     {
       "id": 418,
-      "content": "[FIMBULWINTER]",
+      "content": "[FATED_ASHES]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3776,7 +3781,7 @@
     },
     {
       "id": 419,
-      "content": "[FIRE_DRAGON]",
+      "content": "[FIENDISH_CODEX]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3785,7 +3790,7 @@
     },
     {
       "id": 420,
-      "content": "[FORBIDDEN_IDOL]",
+      "content": "[FIMBULWINTER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3794,7 +3799,7 @@
     },
     {
       "id": 421,
-      "content": "[FORCE_OF_NATURE]",
+      "content": "[FIRE_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3803,7 +3808,7 @@
     },
     {
       "id": 422,
-      "content": "[FOREVER_FORWARD]",
+      "content": "[FORBIDDEN_IDOL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3812,7 +3817,7 @@
     },
     {
       "id": 423,
-      "content": "[FRAME]",
+      "content": "[FORCE_OF_NATURE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3821,7 +3826,7 @@
     },
     {
       "id": 424,
-      "content": "[FROZEN_HEART]",
+      "content": "[FOREVER_FORWARD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3830,7 +3835,7 @@
     },
     {
       "id": 425,
-      "content": "[GAME_END]",
+      "content": "[FRAME]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3839,7 +3844,7 @@
     },
     {
       "id": 426,
-      "content": "[GAME_START]",
+      "content": "[FROZEN_HEART]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3848,7 +3853,7 @@
     },
     {
       "id": 427,
-      "content": "[GIANTS_BELT]",
+      "content": "[GAME_END]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3857,7 +3862,7 @@
     },
     {
       "id": 428,
-      "content": "[GLACIAL_BUCKLER]",
+      "content": "[GAME_START]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3866,7 +3871,7 @@
     },
     {
       "id": 429,
-      "content": "[GLOWING_MOTE]",
+      "content": "[GIANTS_BELT]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3875,7 +3880,7 @@
     },
     {
       "id": 430,
-      "content": "[GUARDIAN_ANGEL]",
+      "content": "[GLACIAL_BUCKLER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3884,7 +3889,7 @@
     },
     {
       "id": 431,
-      "content": "[GUINSOOS_RAGEBLADE]",
+      "content": "[GLOWING_MOTE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3893,7 +3898,7 @@
     },
     {
       "id": 432,
-      "content": "[GUNMETAL_GREAVES]",
+      "content": "[GUARDIAN_ANGEL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3902,7 +3907,7 @@
     },
     {
       "id": 433,
-      "content": "[GUSTWALKER_HATCHLING]",
+      "content": "[GUINSOOS_RAGEBLADE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3911,7 +3916,7 @@
     },
     {
       "id": 434,
-      "content": "[HAUNTING_GUISE]",
+      "content": "[GUNMETAL_GREAVES]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3920,7 +3925,7 @@
     },
     {
       "id": 435,
-      "content": "[HEALTH_POTION]",
+      "content": "[GUSTWALKER_HATCHLING]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3929,7 +3934,7 @@
     },
     {
       "id": 436,
-      "content": "[HEARTHBOUND_AXE]",
+      "content": "[HAUNTING_GUISE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3938,7 +3943,7 @@
     },
     {
       "id": 437,
-      "content": "[HEARTSTEEL]",
+      "content": "[HEALTH_POTION]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3947,7 +3952,7 @@
     },
     {
       "id": 438,
-      "content": "[HEXDRINKER]",
+      "content": "[HEARTHBOUND_AXE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3956,7 +3961,7 @@
     },
     {
       "id": 439,
-      "content": "[HEXTECH_ALTERNATOR]",
+      "content": "[HEARTSTEEL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3965,7 +3970,7 @@
     },
     {
       "id": 440,
-      "content": "[HEXTECH_DRAGON]",
+      "content": "[HEXDRINKER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3974,7 +3979,7 @@
     },
     {
       "id": 441,
-      "content": "[HEXTECH_ROCKETBELT]",
+      "content": "[HEXTECH_ALTERNATOR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3983,7 +3988,7 @@
     },
     {
       "id": 442,
-      "content": "[HOLLOW_RADIANCE]",
+      "content": "[HEXTECH_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -3992,7 +3997,7 @@
     },
     {
       "id": 443,
-      "content": "[HORIZON_FOCUS]",
+      "content": "[HEXTECH_ROCKETBELT]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4001,7 +4006,7 @@
     },
     {
       "id": 444,
-      "content": "[HUBRIS]",
+      "content": "[HOLLOW_RADIANCE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4010,7 +4015,7 @@
     },
     {
       "id": 445,
-      "content": "[HULLBREAKER]",
+      "content": "[HORIZON_FOCUS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4019,7 +4024,7 @@
     },
     {
       "id": 446,
-      "content": "[ICEBORN_GAUNTLET]",
+      "content": "[HUBRIS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4028,7 +4033,7 @@
     },
     {
       "id": 447,
-      "content": "[IMMORTAL_SHIELDBOW]",
+      "content": "[HULLBREAKER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4037,7 +4042,7 @@
     },
     {
       "id": 448,
-      "content": "[IMPERIAL_MANDATE]",
+      "content": "[ICEBORN_GAUNTLET]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4046,7 +4051,7 @@
     },
     {
       "id": 449,
-      "content": "[INFINITY_EDGE]",
+      "content": "[IMMORTAL_SHIELDBOW]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4055,7 +4060,7 @@
     },
     {
       "id": 450,
-      "content": "[INHIBITOR]",
+      "content": "[IMPERIAL_MANDATE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4064,7 +4069,7 @@
     },
     {
       "id": 451,
-      "content": "[INNER]",
+      "content": "[INFINITY_EDGE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4073,7 +4078,7 @@
     },
     {
       "id": 452,
-      "content": "[IONIAN_BOOTS_OF_LUCIDITY]",
+      "content": "[INHIBITOR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4082,7 +4087,7 @@
     },
     {
       "id": 453,
-      "content": "[ITEM_BUY]",
+      "content": "[INNER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4091,7 +4096,7 @@
     },
     {
       "id": 454,
-      "content": "[ITEM_SELL]",
+      "content": "[IONIAN_BOOTS_OF_LUCIDITY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4100,7 +4105,7 @@
     },
     {
       "id": 455,
-      "content": "[ITEM_UNDO]",
+      "content": "[ITEM_BUY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4109,7 +4114,7 @@
     },
     {
       "id": 456,
-      "content": "[ITEM_USE]",
+      "content": "[ITEM_SELL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4118,7 +4123,7 @@
     },
     {
       "id": 457,
-      "content": "[JAKSHO,_THE_PROTEAN]",
+      "content": "[ITEM_UNDO]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4127,7 +4132,7 @@
     },
     {
       "id": 458,
-      "content": "[KAENIC_ROOKERN]",
+      "content": "[ITEM_USE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4136,7 +4141,7 @@
     },
     {
       "id": 459,
-      "content": "[KALISTAS_BLACK_SPEAR]",
+      "content": "[JAKSHO,_THE_PROTEAN]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4145,7 +4150,7 @@
     },
     {
       "id": 460,
-      "content": "[KILL]",
+      "content": "[JUNGLE_B]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4154,7 +4159,7 @@
     },
     {
       "id": 461,
-      "content": "[KINDLEGEM]",
+      "content": "[JUNGLE_R]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4163,7 +4168,7 @@
     },
     {
       "id": 462,
-      "content": "[KIRCHEIS_SHARD]",
+      "content": "[KAENIC_ROOKERN]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4172,7 +4177,7 @@
     },
     {
       "id": 463,
-      "content": "[KNIGHTS_VOW]",
+      "content": "[KALISTAS_BLACK_SPEAR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4181,7 +4186,7 @@
     },
     {
       "id": 464,
-      "content": "[KRAKEN_SLAYER]",
+      "content": "[KILL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4190,7 +4195,7 @@
     },
     {
       "id": 465,
-      "content": "[LAST_WHISPER]",
+      "content": "[KINDLEGEM]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4199,7 +4204,7 @@
     },
     {
       "id": 466,
-      "content": "[LEVEL_UP]",
+      "content": "[KNIGHTS_VOW]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4208,7 +4213,7 @@
     },
     {
       "id": 467,
-      "content": "[LIANDRYS_TORMENT]",
+      "content": "[KRAKEN_SLAYER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4217,7 +4222,7 @@
     },
     {
       "id": 468,
-      "content": "[LICH_BANE]",
+      "content": "[LAST_WHISPER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4226,7 +4231,7 @@
     },
     {
       "id": 469,
-      "content": "[LOCKET_OF_THE_IRON_SOLARI]",
+      "content": "[LEVEL_UP]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4235,7 +4240,7 @@
     },
     {
       "id": 470,
-      "content": "[LONG_SWORD]",
+      "content": "[LIANDRYS_TORMENT]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4244,7 +4249,7 @@
     },
     {
       "id": 471,
-      "content": "[LORD_DOMINIKS_REGARDS]",
+      "content": "[LICH_BANE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4253,7 +4258,7 @@
     },
     {
       "id": 472,
-      "content": "[LOST_CHAPTER]",
+      "content": "[LOCKET_OF_THE_IRON_SOLARI]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4262,7 +4267,7 @@
     },
     {
       "id": 473,
-      "content": "[LUDENS_COMPANION]",
+      "content": "[LONG_SWORD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4271,7 +4276,7 @@
     },
     {
       "id": 474,
-      "content": "[MALIGNANCE]",
+      "content": "[LORD_DOMINIKS_REGARDS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4280,7 +4285,7 @@
     },
     {
       "id": 475,
-      "content": "[MANAMUNE]",
+      "content": "[LOST_CHAPTER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4289,7 +4294,7 @@
     },
     {
       "id": 476,
-      "content": "[MAW_OF_MALMORTIUS]",
+      "content": "[LUDENS_COMPANION]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4298,7 +4303,7 @@
     },
     {
       "id": 477,
-      "content": "[MEJAIS_SOULSTEALER]",
+      "content": "[MALIGNANCE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4307,7 +4312,7 @@
     },
     {
       "id": 478,
-      "content": "[MERCURIAL_SCIMITAR]",
+      "content": "[MANAMUNE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4316,7 +4321,7 @@
     },
     {
       "id": 479,
-      "content": "[MERCURYS_TREADS]",
+      "content": "[MAW_OF_MALMORTIUS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4325,7 +4330,7 @@
     },
     {
       "id": 480,
-      "content": "[MID_LANE]",
+      "content": "[MEJAIS_SOULSTEALER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4334,7 +4339,7 @@
     },
     {
       "id": 481,
-      "content": "[MIKAELS_BLESSING]",
+      "content": "[MERCURIAL_SCIMITAR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4343,7 +4348,7 @@
     },
     {
       "id": 482,
-      "content": "[MINION_DEMATERIALIZER]",
+      "content": "[MERCURYS_TREADS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4352,7 +4357,7 @@
     },
     {
       "id": 483,
-      "content": "[MONSTER_ATAKHAN]",
+      "content": "[MIDDLE_B]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4361,7 +4366,7 @@
     },
     {
       "id": 484,
-      "content": "[MONSTER_BARON_NASHOR]",
+      "content": "[MIDDLE_R]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4370,7 +4375,7 @@
     },
     {
       "id": 485,
-      "content": "[MONSTER_DRAGON]",
+      "content": "[MID_LANE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4379,7 +4384,7 @@
     },
     {
       "id": 486,
-      "content": "[MONSTER_HORDE]",
+      "content": "[MIKAELS_BLESSING]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4388,7 +4393,7 @@
     },
     {
       "id": 487,
-      "content": "[MONSTER_RIFTHERALD]",
+      "content": "[MONSTER_ATAKHAN]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4397,7 +4402,7 @@
     },
     {
       "id": 488,
-      "content": "[MOONSTONE_RENEWER]",
+      "content": "[MONSTER_BARON_NASHOR]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4406,7 +4411,7 @@
     },
     {
       "id": 489,
-      "content": "[MORELLONOMICON]",
+      "content": "[MONSTER_DRAGON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4415,7 +4420,7 @@
     },
     {
       "id": 490,
-      "content": "[MORTAL_REMINDER]",
+      "content": "[MONSTER_HORDE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4424,7 +4429,7 @@
     },
     {
       "id": 491,
-      "content": "[MOSSTOMPER_SEEDLING]",
+      "content": "[MONSTER_RIFTHERALD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4433,7 +4438,7 @@
     },
     {
       "id": 492,
-      "content": "[MURAMANA]",
+      "content": "[MOONSTONE_RENEWER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4442,7 +4447,7 @@
     },
     {
       "id": 493,
-      "content": "[NASHORS_TOOTH]",
+      "content": "[MORELLONOMICON]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4451,7 +4456,7 @@
     },
     {
       "id": 494,
-      "content": "[NAVORI_FLICKERBLADE]",
+      "content": "[MORTAL_REMINDER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4460,7 +4465,7 @@
     },
     {
       "id": 495,
-      "content": "[NEEDLESSLY_LARGE_ROD]",
+      "content": "[MOSSTOMPER_SEEDLING]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4469,7 +4474,7 @@
     },
     {
       "id": 496,
-      "content": "[NEGATRON_CLOAK]",
+      "content": "[MURAMANA]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4478,7 +4483,7 @@
     },
     {
       "id": 497,
-      "content": "[NEXUS]",
+      "content": "[NASHORS_TOOTH]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4487,7 +4492,7 @@
     },
     {
       "id": 498,
-      "content": "[NOONQUIVER]",
+      "content": "[NAVORI_FLICKERBLADE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4496,7 +4501,7 @@
     },
     {
       "id": 499,
-      "content": "[NULL_MAGIC_MANTLE]",
+      "content": "[NEEDLESSLY_LARGE_ROD]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4505,7 +4510,7 @@
     },
     {
       "id": 500,
-      "content": "[OBLIVION_ORB]",
+      "content": "[NEGATRON_CLOAK]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4514,7 +4519,7 @@
     },
     {
       "id": 501,
-      "content": "[OPPORTUNITY]",
+      "content": "[NEXUS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4523,7 +4528,7 @@
     },
     {
       "id": 502,
-      "content": "[ORACLE_LENS]",
+      "content": "[NOONQUIVER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4532,7 +4537,7 @@
     },
     {
       "id": 503,
-      "content": "[OUTER]",
+      "content": "[NULL_MAGIC_MANTLE]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4541,7 +4546,7 @@
     },
     {
       "id": 504,
-      "content": "[OVERLORDS_BLOODMAIL]",
+      "content": "[OBLIVION_ORB]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4550,7 +4555,7 @@
     },
     {
       "id": 505,
-      "content": "[P0]",
+      "content": "[OPPORTUNITY]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4559,7 +4564,7 @@
     },
     {
       "id": 506,
-      "content": "[P10]",
+      "content": "[ORACLE_LENS]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4568,7 +4573,7 @@
     },
     {
       "id": 507,
-      "content": "[P1]",
+      "content": "[OUTER]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4577,7 +4582,7 @@
     },
     {
       "id": 508,
-      "content": "[P2]",
+      "content": "[OVERLORDS_BLOODMAIL]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4586,7 +4591,7 @@
     },
     {
       "id": 509,
-      "content": "[P3]",
+      "content": "[P0]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -4595,60 +4600,6 @@
     },
     {
       "id": 510,
-      "content": "[P4]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 511,
-      "content": "[P5]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 512,
-      "content": "[P6]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 513,
-      "content": "[P7]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 514,
-      "content": "[P8]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 515,
-      "content": "[P9]",
-      "single_word": false,
-      "lstrip": false,
-      "rstrip": false,
-      "normalized": false,
-      "special": true
-    },
-    {
-      "id": 516,
       "content": "[PHAGE]",
       "single_word": false,
       "lstrip": false,
@@ -4657,7 +4608,7 @@
       "special": true
     },
     {
-      "id": 517,
+      "id": 511,
       "content": "[PHANTOM_DANCER]",
       "single_word": false,
       "lstrip": false,
@@ -4666,7 +4617,7 @@
       "special": true
     },
     {
-      "id": 518,
+      "id": 512,
       "content": "[PICKAXE]",
       "single_word": false,
       "lstrip": false,
@@ -4675,7 +4626,7 @@
       "special": true
     },
     {
-      "id": 519,
+      "id": 513,
       "content": "[PLATED_STEELCAPS]",
       "single_word": false,
       "lstrip": false,
@@ -4684,7 +4635,7 @@
       "special": true
     },
     {
-      "id": 520,
+      "id": 514,
       "content": "[PNone]",
       "single_word": false,
       "lstrip": false,
@@ -4693,7 +4644,7 @@
       "special": true
     },
     {
-      "id": 521,
+      "id": 515,
       "content": "[PROFANE_HYDRA]",
       "single_word": false,
       "lstrip": false,
@@ -4702,7 +4653,7 @@
       "special": true
     },
     {
-      "id": 522,
+      "id": 516,
       "content": "[P]",
       "single_word": false,
       "lstrip": false,
@@ -4711,7 +4662,7 @@
       "special": true
     },
     {
-      "id": 523,
+      "id": 517,
       "content": "[QUICKSILVER_SASH]",
       "single_word": false,
       "lstrip": false,
@@ -4720,7 +4671,7 @@
       "special": true
     },
     {
-      "id": 524,
+      "id": 518,
       "content": "[RABADONS_DEATHCAP]",
       "single_word": false,
       "lstrip": false,
@@ -4729,7 +4680,7 @@
       "special": true
     },
     {
-      "id": 525,
+      "id": 519,
       "content": "[RANDUINS_OMEN]",
       "single_word": false,
       "lstrip": false,
@@ -4738,7 +4689,7 @@
       "special": true
     },
     {
-      "id": 526,
+      "id": 520,
       "content": "[RANK_BRONZE]",
       "single_word": false,
       "lstrip": false,
@@ -4747,7 +4698,7 @@
       "special": true
     },
     {
-      "id": 527,
+      "id": 521,
       "content": "[RANK_CHALLENGER]",
       "single_word": false,
       "lstrip": false,
@@ -4756,7 +4707,7 @@
       "special": true
     },
     {
-      "id": 528,
+      "id": 522,
       "content": "[RANK_DIAMOND]",
       "single_word": false,
       "lstrip": false,
@@ -4765,7 +4716,7 @@
       "special": true
     },
     {
-      "id": 529,
+      "id": 523,
       "content": "[RANK_EMERALD]",
       "single_word": false,
       "lstrip": false,
@@ -4774,7 +4725,7 @@
       "special": true
     },
     {
-      "id": 530,
+      "id": 524,
       "content": "[RANK_GOLD]",
       "single_word": false,
       "lstrip": false,
@@ -4783,7 +4734,7 @@
       "special": true
     },
     {
-      "id": 531,
+      "id": 525,
       "content": "[RANK_GRANDMASTER]",
       "single_word": false,
       "lstrip": false,
@@ -4792,7 +4743,16 @@
       "special": true
     },
     {
-      "id": 532,
+      "id": 526,
+      "content": "[RANK_IRON]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 527,
       "content": "[RANK_MASTER]",
       "single_word": false,
       "lstrip": false,
@@ -4801,7 +4761,7 @@
       "special": true
     },
     {
-      "id": 533,
+      "id": 528,
       "content": "[RANK_PLATINUM]",
       "single_word": false,
       "lstrip": false,
@@ -4810,7 +4770,7 @@
       "special": true
     },
     {
-      "id": 534,
+      "id": 529,
       "content": "[RANK_SILVER]",
       "single_word": false,
       "lstrip": false,
@@ -4819,7 +4779,7 @@
       "special": true
     },
     {
-      "id": 535,
+      "id": 530,
       "content": "[RAPID_FIRECANNON]",
       "single_word": false,
       "lstrip": false,
@@ -4828,7 +4788,7 @@
       "special": true
     },
     {
-      "id": 536,
+      "id": 531,
       "content": "[RAVENOUS_HYDRA]",
       "single_word": false,
       "lstrip": false,
@@ -4837,7 +4797,7 @@
       "special": true
     },
     {
-      "id": 537,
+      "id": 532,
       "content": "[RECTRIX]",
       "single_word": false,
       "lstrip": false,
@@ -4846,7 +4806,7 @@
       "special": true
     },
     {
-      "id": 538,
+      "id": 533,
       "content": "[RECURVE_BOW]",
       "single_word": false,
       "lstrip": false,
@@ -4855,7 +4815,7 @@
       "special": true
     },
     {
-      "id": 539,
+      "id": 534,
       "content": "[REDEMPTION]",
       "single_word": false,
       "lstrip": false,
@@ -4864,7 +4824,7 @@
       "special": true
     },
     {
-      "id": 540,
+      "id": 535,
       "content": "[REFILLABLE_POTION]",
       "single_word": false,
       "lstrip": false,
@@ -4873,7 +4833,7 @@
       "special": true
     },
     {
-      "id": 541,
+      "id": 536,
       "content": "[REJUVENATION_BEAD]",
       "single_word": false,
       "lstrip": false,
@@ -4882,7 +4842,7 @@
       "special": true
     },
     {
-      "id": 542,
+      "id": 537,
       "content": "[RIFTMAKER]",
       "single_word": false,
       "lstrip": false,
@@ -4891,7 +4851,7 @@
       "special": true
     },
     {
-      "id": 543,
+      "id": 538,
       "content": "[ROD_OF_AGES]",
       "single_word": false,
       "lstrip": false,
@@ -4900,7 +4860,7 @@
       "special": true
     },
     {
-      "id": 544,
+      "id": 539,
       "content": "[RUBY_CRYSTAL]",
       "single_word": false,
       "lstrip": false,
@@ -4909,7 +4869,7 @@
       "special": true
     },
     {
-      "id": 545,
+      "id": 540,
       "content": "[RUNAANS_HURRICANE]",
       "single_word": false,
       "lstrip": false,
@@ -4918,7 +4878,7 @@
       "special": true
     },
     {
-      "id": 546,
+      "id": 541,
       "content": "[RUNIC_COMPASS]",
       "single_word": false,
       "lstrip": false,
@@ -4927,7 +4887,7 @@
       "special": true
     },
     {
-      "id": 547,
+      "id": 542,
       "content": "[RYLAIS_CRYSTAL_SCEPTER]",
       "single_word": false,
       "lstrip": false,
@@ -4936,7 +4896,7 @@
       "special": true
     },
     {
-      "id": 548,
+      "id": 543,
       "content": "[SAPPHIRE_CRYSTAL]",
       "single_word": false,
       "lstrip": false,
@@ -4945,7 +4905,7 @@
       "special": true
     },
     {
-      "id": 549,
+      "id": 544,
       "content": "[SCARECROW_EFFIGY]",
       "single_word": false,
       "lstrip": false,
@@ -4954,7 +4914,7 @@
       "special": true
     },
     {
-      "id": 550,
+      "id": 545,
       "content": "[SCORCHCLAW_PUP]",
       "single_word": false,
       "lstrip": false,
@@ -4963,7 +4923,7 @@
       "special": true
     },
     {
-      "id": 551,
+      "id": 546,
       "content": "[SCOUTS_SLINGSHOT]",
       "single_word": false,
       "lstrip": false,
@@ -4972,7 +4932,7 @@
       "special": true
     },
     {
-      "id": 552,
+      "id": 547,
       "content": "[SEEKERS_ARMGUARD]",
       "single_word": false,
       "lstrip": false,
@@ -4981,7 +4941,7 @@
       "special": true
     },
     {
-      "id": 553,
+      "id": 548,
       "content": "[SERAPHS_EMBRACE]",
       "single_word": false,
       "lstrip": false,
@@ -4990,7 +4950,7 @@
       "special": true
     },
     {
-      "id": 554,
+      "id": 549,
       "content": "[SERPENTS_FANG]",
       "single_word": false,
       "lstrip": false,
@@ -4999,7 +4959,7 @@
       "special": true
     },
     {
-      "id": 555,
+      "id": 550,
       "content": "[SERRATED_DIRK]",
       "single_word": false,
       "lstrip": false,
@@ -5008,7 +4968,7 @@
       "special": true
     },
     {
-      "id": 556,
+      "id": 551,
       "content": "[SERYLDAS_GRUDGE]",
       "single_word": false,
       "lstrip": false,
@@ -5017,7 +4977,7 @@
       "special": true
     },
     {
-      "id": 557,
+      "id": 552,
       "content": "[SHADOWFLAME]",
       "single_word": false,
       "lstrip": false,
@@ -5026,7 +4986,7 @@
       "special": true
     },
     {
-      "id": 558,
+      "id": 553,
       "content": "[SHATTERED_ARMGUARD]",
       "single_word": false,
       "lstrip": false,
@@ -5035,7 +4995,7 @@
       "special": true
     },
     {
-      "id": 559,
+      "id": 554,
       "content": "[SHEEN]",
       "single_word": false,
       "lstrip": false,
@@ -5044,7 +5004,7 @@
       "special": true
     },
     {
-      "id": 560,
+      "id": 555,
       "content": "[SHURELYAS_BATTLESONG]",
       "single_word": false,
       "lstrip": false,
@@ -5053,7 +5013,7 @@
       "special": true
     },
     {
-      "id": 561,
+      "id": 556,
       "content": "[SIGHT]",
       "single_word": false,
       "lstrip": false,
@@ -5062,7 +5022,7 @@
       "special": true
     },
     {
-      "id": 562,
+      "id": 557,
       "content": "[SKILL_E]",
       "single_word": false,
       "lstrip": false,
@@ -5071,7 +5031,7 @@
       "special": true
     },
     {
-      "id": 563,
+      "id": 558,
       "content": "[SKILL_Q]",
       "single_word": false,
       "lstrip": false,
@@ -5080,7 +5040,7 @@
       "special": true
     },
     {
-      "id": 564,
+      "id": 559,
       "content": "[SKILL_R]",
       "single_word": false,
       "lstrip": false,
@@ -5089,7 +5049,7 @@
       "special": true
     },
     {
-      "id": 565,
+      "id": 560,
       "content": "[SKILL_UP]",
       "single_word": false,
       "lstrip": false,
@@ -5098,7 +5058,7 @@
       "special": true
     },
     {
-      "id": 566,
+      "id": 561,
       "content": "[SKILL_W]",
       "single_word": false,
       "lstrip": false,
@@ -5107,7 +5067,7 @@
       "special": true
     },
     {
-      "id": 567,
+      "id": 562,
       "content": "[SLIGHTLY_MAGICAL_FOOTWEAR]",
       "single_word": false,
       "lstrip": false,
@@ -5116,7 +5076,7 @@
       "special": true
     },
     {
-      "id": 568,
+      "id": 563,
       "content": "[SOLSTICE_SLEIGH]",
       "single_word": false,
       "lstrip": false,
@@ -5125,7 +5085,7 @@
       "special": true
     },
     {
-      "id": 569,
+      "id": 564,
       "content": "[SORCERERS_SHOES]",
       "single_word": false,
       "lstrip": false,
@@ -5134,7 +5094,7 @@
       "special": true
     },
     {
-      "id": 570,
+      "id": 565,
       "content": "[SPEAR_OF_SHOJIN]",
       "single_word": false,
       "lstrip": false,
@@ -5143,7 +5103,7 @@
       "special": true
     },
     {
-      "id": 571,
+      "id": 566,
       "content": "[SPECIAL_DOUBLE_KILL]",
       "single_word": false,
       "lstrip": false,
@@ -5152,7 +5112,7 @@
       "special": true
     },
     {
-      "id": 572,
+      "id": 567,
       "content": "[SPECIAL_KILL_ACE]",
       "single_word": false,
       "lstrip": false,
@@ -5161,7 +5121,7 @@
       "special": true
     },
     {
-      "id": 573,
+      "id": 568,
       "content": "[SPECIAL_KILL_FIRST_BLOOD]",
       "single_word": false,
       "lstrip": false,
@@ -5170,7 +5130,7 @@
       "special": true
     },
     {
-      "id": 574,
+      "id": 569,
       "content": "[SPECIAL_PENTA_KILL]",
       "single_word": false,
       "lstrip": false,
@@ -5179,7 +5139,7 @@
       "special": true
     },
     {
-      "id": 575,
+      "id": 570,
       "content": "[SPECIAL_QUADRA_KILL]",
       "single_word": false,
       "lstrip": false,
@@ -5188,7 +5148,7 @@
       "special": true
     },
     {
-      "id": 576,
+      "id": 571,
       "content": "[SPECIAL_TRIPLE_KILL]",
       "single_word": false,
       "lstrip": false,
@@ -5197,7 +5157,7 @@
       "special": true
     },
     {
-      "id": 577,
+      "id": 572,
       "content": "[SPECTRES_COWL]",
       "single_word": false,
       "lstrip": false,
@@ -5206,7 +5166,7 @@
       "special": true
     },
     {
-      "id": 578,
+      "id": 573,
       "content": "[SPELLSLINGERS_SHOES]",
       "single_word": false,
       "lstrip": false,
@@ -5215,7 +5175,7 @@
       "special": true
     },
     {
-      "id": 579,
+      "id": 574,
       "content": "[SPIRIT_VISAGE]",
       "single_word": false,
       "lstrip": false,
@@ -5224,7 +5184,7 @@
       "special": true
     },
     {
-      "id": 580,
+      "id": 575,
       "content": "[STAFF_OF_FLOWING_WATER]",
       "single_word": false,
       "lstrip": false,
@@ -5233,7 +5193,7 @@
       "special": true
     },
     {
-      "id": 581,
+      "id": 576,
       "content": "[STATIKK_SHIV]",
       "single_word": false,
       "lstrip": false,
@@ -5242,7 +5202,7 @@
       "special": true
     },
     {
-      "id": 582,
+      "id": 577,
       "content": "[STEALTH_WARD]",
       "single_word": false,
       "lstrip": false,
@@ -5251,7 +5211,7 @@
       "special": true
     },
     {
-      "id": 583,
+      "id": 578,
       "content": "[STEEL_SIGIL]",
       "single_word": false,
       "lstrip": false,
@@ -5260,7 +5220,7 @@
       "special": true
     },
     {
-      "id": 584,
+      "id": 579,
       "content": "[STERAKS_GAGE]",
       "single_word": false,
       "lstrip": false,
@@ -5269,7 +5229,7 @@
       "special": true
     },
     {
-      "id": 585,
+      "id": 580,
       "content": "[STORMSURGE]",
       "single_word": false,
       "lstrip": false,
@@ -5278,7 +5238,7 @@
       "special": true
     },
     {
-      "id": 586,
+      "id": 581,
       "content": "[STRIDEBREAKER]",
       "single_word": false,
       "lstrip": false,
@@ -5287,7 +5247,7 @@
       "special": true
     },
     {
-      "id": 587,
+      "id": 582,
       "content": "[SUNDERED_SKY]",
       "single_word": false,
       "lstrip": false,
@@ -5296,7 +5256,7 @@
       "special": true
     },
     {
-      "id": 588,
+      "id": 583,
       "content": "[SUNFIRE_AEGIS]",
       "single_word": false,
       "lstrip": false,
@@ -5305,7 +5265,7 @@
       "special": true
     },
     {
-      "id": 589,
+      "id": 584,
       "content": "[SWIFTMARCH]",
       "single_word": false,
       "lstrip": false,
@@ -5314,7 +5274,7 @@
       "special": true
     },
     {
-      "id": 590,
+      "id": 585,
       "content": "[SYMBIOTIC_SOLES]",
       "single_word": false,
       "lstrip": false,
@@ -5323,7 +5283,7 @@
       "special": true
     },
     {
-      "id": 591,
+      "id": 586,
       "content": "[SYNCHRONIZED_SOULS]",
       "single_word": false,
       "lstrip": false,
@@ -5332,7 +5292,7 @@
       "special": true
     },
     {
-      "id": 592,
+      "id": 587,
       "content": "[TEAM100]",
       "single_word": false,
       "lstrip": false,
@@ -5341,7 +5301,7 @@
       "special": true
     },
     {
-      "id": 593,
+      "id": 588,
       "content": "[TEAM200]",
       "single_word": false,
       "lstrip": false,
@@ -5350,7 +5310,7 @@
       "special": true
     },
     {
-      "id": 594,
+      "id": 589,
       "content": "[TEAR_OF_THE_GODDESS]",
       "single_word": false,
       "lstrip": false,
@@ -5359,7 +5319,7 @@
       "special": true
     },
     {
-      "id": 595,
+      "id": 590,
       "content": "[TERMINUS]",
       "single_word": false,
       "lstrip": false,
@@ -5368,7 +5328,7 @@
       "special": true
     },
     {
-      "id": 596,
+      "id": 591,
       "content": "[THE_BRUTALIZER]",
       "single_word": false,
       "lstrip": false,
@@ -5377,7 +5337,7 @@
       "special": true
     },
     {
-      "id": 597,
+      "id": 592,
       "content": "[THE_COLLECTOR]",
       "single_word": false,
       "lstrip": false,
@@ -5386,7 +5346,7 @@
       "special": true
     },
     {
-      "id": 598,
+      "id": 593,
       "content": "[THORNMAIL]",
       "single_word": false,
       "lstrip": false,
@@ -5395,7 +5355,7 @@
       "special": true
     },
     {
-      "id": 599,
+      "id": 594,
       "content": "[TIAMAT]",
       "single_word": false,
       "lstrip": false,
@@ -5404,7 +5364,7 @@
       "special": true
     },
     {
-      "id": 600,
+      "id": 595,
       "content": "[TITANIC_HYDRA]",
       "single_word": false,
       "lstrip": false,
@@ -5413,7 +5373,16 @@
       "special": true
     },
     {
-      "id": 601,
+      "id": 596,
+      "content": "[TOP_B]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 597,
       "content": "[TOP_LANE]",
       "single_word": false,
       "lstrip": false,
@@ -5422,7 +5391,16 @@
       "special": true
     },
     {
-      "id": 602,
+      "id": 598,
+      "content": "[TOP_R]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 599,
       "content": "[TOTAL_BISCUIT_OF_EVERLASTING_WILL]",
       "single_word": false,
       "lstrip": false,
@@ -5431,7 +5409,7 @@
       "special": true
     },
     {
-      "id": 603,
+      "id": 600,
       "content": "[TOWER]",
       "single_word": false,
       "lstrip": false,
@@ -5440,7 +5418,7 @@
       "special": true
     },
     {
-      "id": 604,
+      "id": 601,
       "content": "[TRAILBLAZER]",
       "single_word": false,
       "lstrip": false,
@@ -5449,7 +5427,7 @@
       "special": true
     },
     {
-      "id": 605,
+      "id": 602,
       "content": "[TRINITY_FORCE]",
       "single_word": false,
       "lstrip": false,
@@ -5458,7 +5436,7 @@
       "special": true
     },
     {
-      "id": 606,
+      "id": 603,
       "content": "[TUNNELER]",
       "single_word": false,
       "lstrip": false,
@@ -5467,7 +5445,7 @@
       "special": true
     },
     {
-      "id": 607,
+      "id": 604,
       "content": "[UMBRAL_GLAIVE]",
       "single_word": false,
       "lstrip": false,
@@ -5476,7 +5454,7 @@
       "special": true
     },
     {
-      "id": 608,
+      "id": 605,
       "content": "[UNDEFINED]",
       "single_word": false,
       "lstrip": false,
@@ -5485,7 +5463,7 @@
       "special": true
     },
     {
-      "id": 609,
+      "id": 606,
       "content": "[UNENDING_DESPAIR]",
       "single_word": false,
       "lstrip": false,
@@ -5494,7 +5472,7 @@
       "special": true
     },
     {
-      "id": 610,
+      "id": 607,
       "content": "[UNKNOWN_2001]",
       "single_word": false,
       "lstrip": false,
@@ -5503,7 +5481,7 @@
       "special": true
     },
     {
-      "id": 611,
+      "id": 608,
       "content": "[UNKNOWN_WARD]",
       "single_word": false,
       "lstrip": false,
@@ -5512,7 +5490,25 @@
       "special": true
     },
     {
-      "id": 612,
+      "id": 609,
+      "content": "[UTILITY_B]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 610,
+      "content": "[UTILITY_R]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 611,
       "content": "[VAMPIRIC_SCEPTER]",
       "single_word": false,
       "lstrip": false,
@@ -5521,7 +5517,7 @@
       "special": true
     },
     {
-      "id": 613,
+      "id": 612,
       "content": "[VERDANT_BARRIER]",
       "single_word": false,
       "lstrip": false,
@@ -5530,7 +5526,7 @@
       "special": true
     },
     {
-      "id": 614,
+      "id": 613,
       "content": "[VIGILANT_WARDSTONE]",
       "single_word": false,
       "lstrip": false,
@@ -5539,7 +5535,7 @@
       "special": true
     },
     {
-      "id": 615,
+      "id": 614,
       "content": "[VOID_STAFF]",
       "single_word": false,
       "lstrip": false,
@@ -5548,7 +5544,7 @@
       "special": true
     },
     {
-      "id": 616,
+      "id": 615,
       "content": "[VOLTAIC_CYCLOSWORD]",
       "single_word": false,
       "lstrip": false,
@@ -5557,7 +5553,7 @@
       "special": true
     },
     {
-      "id": 617,
+      "id": 616,
       "content": "[WARDENS_MAIL]",
       "single_word": false,
       "lstrip": false,
@@ -5566,7 +5562,7 @@
       "special": true
     },
     {
-      "id": 618,
+      "id": 617,
       "content": "[WARD_KILL]",
       "single_word": false,
       "lstrip": false,
@@ -5575,7 +5571,7 @@
       "special": true
     },
     {
-      "id": 619,
+      "id": 618,
       "content": "[WARD_PLACE]",
       "single_word": false,
       "lstrip": false,
@@ -5584,7 +5580,7 @@
       "special": true
     },
     {
-      "id": 620,
+      "id": 619,
       "content": "[WARMOGS_ARMOR]",
       "single_word": false,
       "lstrip": false,
@@ -5593,7 +5589,7 @@
       "special": true
     },
     {
-      "id": 621,
+      "id": 620,
       "content": "[WATCHFUL_WARDSTONE]",
       "single_word": false,
       "lstrip": false,
@@ -5602,7 +5598,7 @@
       "special": true
     },
     {
-      "id": 622,
+      "id": 621,
       "content": "[WATER_DRAGON]",
       "single_word": false,
       "lstrip": false,
@@ -5611,7 +5607,7 @@
       "special": true
     },
     {
-      "id": 623,
+      "id": 622,
       "content": "[WINGED_MOONPLATE]",
       "single_word": false,
       "lstrip": false,
@@ -5620,7 +5616,7 @@
       "special": true
     },
     {
-      "id": 624,
+      "id": 623,
       "content": "[WINTERS_APPROACH]",
       "single_word": false,
       "lstrip": false,
@@ -5629,7 +5625,7 @@
       "special": true
     },
     {
-      "id": 625,
+      "id": 624,
       "content": "[WITS_END]",
       "single_word": false,
       "lstrip": false,
@@ -5638,7 +5634,7 @@
       "special": true
     },
     {
-      "id": 626,
+      "id": 625,
       "content": "[WORLD_ATLAS]",
       "single_word": false,
       "lstrip": false,
@@ -5647,7 +5643,7 @@
       "special": true
     },
     {
-      "id": 627,
+      "id": 626,
       "content": "[YELLOW]",
       "single_word": false,
       "lstrip": false,
@@ -5656,7 +5652,7 @@
       "special": true
     },
     {
-      "id": 628,
+      "id": 627,
       "content": "[YOUMUUS_GHOSTBLADE]",
       "single_word": false,
       "lstrip": false,
@@ -5665,7 +5661,7 @@
       "special": true
     },
     {
-      "id": 629,
+      "id": 628,
       "content": "[YOUR_CUT]",
       "single_word": false,
       "lstrip": false,
@@ -5674,7 +5670,7 @@
       "special": true
     },
     {
-      "id": 630,
+      "id": 629,
       "content": "[YUN_TAL_WILDARROWS]",
       "single_word": false,
       "lstrip": false,
@@ -5683,7 +5679,7 @@
       "special": true
     },
     {
-      "id": 631,
+      "id": 630,
       "content": "[ZAZZAKS_REALMSPIKE]",
       "single_word": false,
       "lstrip": false,
@@ -5692,7 +5688,7 @@
       "special": true
     },
     {
-      "id": 632,
+      "id": 631,
       "content": "[ZEAL]",
       "single_word": false,
       "lstrip": false,
@@ -5701,7 +5697,7 @@
       "special": true
     },
     {
-      "id": 633,
+      "id": 632,
       "content": "[ZEKES_CONVERGENCE]",
       "single_word": false,
       "lstrip": false,
@@ -5710,8 +5706,26 @@
       "special": true
     },
     {
-      "id": 634,
+      "id": 633,
       "content": "[ZHONYAS_HOURGLASS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 634,
+      "content": "[_B]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 635,
+      "content": "[_R]",
       "single_word": false,
       "lstrip": false,
       "rstrip": false,
@@ -6125,275 +6139,276 @@
       "[BLUE]": 363,
       "[BOOTS]": 364,
       "[BOOTS_OF_SWIFTNESS]": 365,
-      "[BOT_LANE]": 366,
-      "[BOUNTY]": 367,
-      "[BOUNTY_OF_WORLDS]": 368,
-      "[BRAMBLE_VEST]": 369,
-      "[BUILDING_DESTROY]": 370,
-      "[BUILDING_PLATE]": 371,
-      "[B_F_SWORD]": 372,
-      "[CATALYST_OF_AEONS]": 373,
-      "[CAULFIELDS_WARHAMMER]": 374,
-      "[CELESTIAL_OPPOSITION]": 375,
-      "[CHAINLACED_CRUSHERS]": 376,
-      "[CHAIN_VEST]": 377,
-      "[CHEMPUNK_CHAINSWORD]": 378,
-      "[CHEMTECH_DRAGON]": 379,
-      "[CLOAK_OF_AGILITY]": 380,
-      "[CLOTH_ARMOR]": 381,
-      "[CONTROL]": 382,
-      "[CONTROL_WARD]": 383,
-      "[COSMIC_DRIVE]": 384,
-      "[CRIMSON_LUCIDITY]": 385,
-      "[CRYPTBLOOM]": 386,
-      "[CRYSTALLINE_BRACER]": 387,
-      "[CULL]": 388,
-      "[DAGGER]": 389,
-      "[DARK_SEAL]": 390,
-      "[DAWNCORE]": 391,
-      "[DEAD_MANS_PLATE]": 392,
-      "[DEATHS_DANCE]": 393,
-      "[DORANS_BLADE]": 394,
-      "[DORANS_RING]": 395,
-      "[DORANS_SHIELD]": 396,
-      "[DREAM_MAKER]": 397,
-      "[EARTH_DRAGON]": 398,
-      "[ECHOES_OF_HELIA]": 399,
-      "[ECLIPSE]": 400,
-      "[EDGE_OF_NIGHT]": 401,
-      "[ELDER_DRAGON]": 402,
-      "[ELIXIR_OF_AVARICE]": 403,
-      "[ELIXIR_OF_FORCE]": 404,
-      "[ELIXIR_OF_IRON]": 405,
-      "[ELIXIR_OF_SKILL]": 406,
-      "[ELIXIR_OF_SORCERY]": 407,
-      "[ELIXIR_OF_WRATH]": 408,
-      "[EMPTY]": 409,
-      "[ESSENCE_REAVER]": 410,
-      "[EXECUTIONERS_CALLING]": 411,
-      "[EXPERIMENTAL_HEXPLATE]": 412,
-      "[EYE_OF_THE_HERALD]": 413,
-      "[FAERIE_CHARM]": 414,
-      "[FARSIGHT_ALTERATION]": 415,
-      "[FATED_ASHES]": 416,
-      "[FIENDISH_CODEX]": 417,
-      "[FIMBULWINTER]": 418,
-      "[FIRE_DRAGON]": 419,
-      "[FORBIDDEN_IDOL]": 420,
-      "[FORCE_OF_NATURE]": 421,
-      "[FOREVER_FORWARD]": 422,
-      "[FRAME]": 423,
-      "[FROZEN_HEART]": 424,
-      "[GAME_END]": 425,
-      "[GAME_START]": 426,
-      "[GIANTS_BELT]": 427,
-      "[GLACIAL_BUCKLER]": 428,
-      "[GLOWING_MOTE]": 429,
-      "[GUARDIAN_ANGEL]": 430,
-      "[GUINSOOS_RAGEBLADE]": 431,
-      "[GUNMETAL_GREAVES]": 432,
-      "[GUSTWALKER_HATCHLING]": 433,
-      "[HAUNTING_GUISE]": 434,
-      "[HEALTH_POTION]": 435,
-      "[HEARTHBOUND_AXE]": 436,
-      "[HEARTSTEEL]": 437,
-      "[HEXDRINKER]": 438,
-      "[HEXTECH_ALTERNATOR]": 439,
-      "[HEXTECH_DRAGON]": 440,
-      "[HEXTECH_ROCKETBELT]": 441,
-      "[HOLLOW_RADIANCE]": 442,
-      "[HORIZON_FOCUS]": 443,
-      "[HUBRIS]": 444,
-      "[HULLBREAKER]": 445,
-      "[ICEBORN_GAUNTLET]": 446,
-      "[IMMORTAL_SHIELDBOW]": 447,
-      "[IMPERIAL_MANDATE]": 448,
-      "[INFINITY_EDGE]": 449,
-      "[INHIBITOR]": 450,
-      "[INNER]": 451,
-      "[IONIAN_BOOTS_OF_LUCIDITY]": 452,
-      "[ITEM_BUY]": 453,
-      "[ITEM_SELL]": 454,
-      "[ITEM_UNDO]": 455,
-      "[ITEM_USE]": 456,
-      "[JAKSHO,_THE_PROTEAN]": 457,
-      "[KAENIC_ROOKERN]": 458,
-      "[KALISTAS_BLACK_SPEAR]": 459,
-      "[KILL]": 460,
-      "[KINDLEGEM]": 461,
-      "[KIRCHEIS_SHARD]": 462,
-      "[KNIGHTS_VOW]": 463,
-      "[KRAKEN_SLAYER]": 464,
-      "[LAST_WHISPER]": 465,
-      "[LEVEL_UP]": 466,
-      "[LIANDRYS_TORMENT]": 467,
-      "[LICH_BANE]": 468,
-      "[LOCKET_OF_THE_IRON_SOLARI]": 469,
-      "[LONG_SWORD]": 470,
-      "[LORD_DOMINIKS_REGARDS]": 471,
-      "[LOST_CHAPTER]": 472,
-      "[LUDENS_COMPANION]": 473,
-      "[MALIGNANCE]": 474,
-      "[MANAMUNE]": 475,
-      "[MAW_OF_MALMORTIUS]": 476,
-      "[MEJAIS_SOULSTEALER]": 477,
-      "[MERCURIAL_SCIMITAR]": 478,
-      "[MERCURYS_TREADS]": 479,
-      "[MID_LANE]": 480,
-      "[MIKAELS_BLESSING]": 481,
-      "[MINION_DEMATERIALIZER]": 482,
-      "[MONSTER_ATAKHAN]": 483,
-      "[MONSTER_BARON_NASHOR]": 484,
-      "[MONSTER_DRAGON]": 485,
-      "[MONSTER_HORDE]": 486,
-      "[MONSTER_RIFTHERALD]": 487,
-      "[MOONSTONE_RENEWER]": 488,
-      "[MORELLONOMICON]": 489,
-      "[MORTAL_REMINDER]": 490,
-      "[MOSSTOMPER_SEEDLING]": 491,
-      "[MURAMANA]": 492,
-      "[NASHORS_TOOTH]": 493,
-      "[NAVORI_FLICKERBLADE]": 494,
-      "[NEEDLESSLY_LARGE_ROD]": 495,
-      "[NEGATRON_CLOAK]": 496,
-      "[NEXUS]": 497,
-      "[NOONQUIVER]": 498,
-      "[NULL_MAGIC_MANTLE]": 499,
-      "[OBLIVION_ORB]": 500,
-      "[OPPORTUNITY]": 501,
-      "[ORACLE_LENS]": 502,
-      "[OUTER]": 503,
-      "[OVERLORDS_BLOODMAIL]": 504,
-      "[P0]": 505,
-      "[P10]": 506,
-      "[P1]": 507,
-      "[P2]": 508,
-      "[P3]": 509,
-      "[P4]": 510,
-      "[P5]": 511,
-      "[P6]": 512,
-      "[P7]": 513,
-      "[P8]": 514,
-      "[P9]": 515,
-      "[PHAGE]": 516,
-      "[PHANTOM_DANCER]": 517,
-      "[PICKAXE]": 518,
-      "[PLATED_STEELCAPS]": 519,
-      "[PNone]": 520,
-      "[PROFANE_HYDRA]": 521,
-      "[P]": 522,
-      "[QUICKSILVER_SASH]": 523,
-      "[RABADONS_DEATHCAP]": 524,
-      "[RANDUINS_OMEN]": 525,
-      "[RANK_BRONZE]": 526,
-      "[RANK_CHALLENGER]": 527,
-      "[RANK_DIAMOND]": 528,
-      "[RANK_EMERALD]": 529,
-      "[RANK_GOLD]": 530,
-      "[RANK_GRANDMASTER]": 531,
-      "[RANK_MASTER]": 532,
-      "[RANK_PLATINUM]": 533,
-      "[RANK_SILVER]": 534,
-      "[RAPID_FIRECANNON]": 535,
-      "[RAVENOUS_HYDRA]": 536,
-      "[RECTRIX]": 537,
-      "[RECURVE_BOW]": 538,
-      "[REDEMPTION]": 539,
-      "[REFILLABLE_POTION]": 540,
-      "[REJUVENATION_BEAD]": 541,
-      "[RIFTMAKER]": 542,
-      "[ROD_OF_AGES]": 543,
-      "[RUBY_CRYSTAL]": 544,
-      "[RUNAANS_HURRICANE]": 545,
-      "[RUNIC_COMPASS]": 546,
-      "[RYLAIS_CRYSTAL_SCEPTER]": 547,
-      "[SAPPHIRE_CRYSTAL]": 548,
-      "[SCARECROW_EFFIGY]": 549,
-      "[SCORCHCLAW_PUP]": 550,
-      "[SCOUTS_SLINGSHOT]": 551,
-      "[SEEKERS_ARMGUARD]": 552,
-      "[SERAPHS_EMBRACE]": 553,
-      "[SERPENTS_FANG]": 554,
-      "[SERRATED_DIRK]": 555,
-      "[SERYLDAS_GRUDGE]": 556,
-      "[SHADOWFLAME]": 557,
-      "[SHATTERED_ARMGUARD]": 558,
-      "[SHEEN]": 559,
-      "[SHURELYAS_BATTLESONG]": 560,
-      "[SIGHT]": 561,
-      "[SKILL_E]": 562,
-      "[SKILL_Q]": 563,
-      "[SKILL_R]": 564,
-      "[SKILL_UP]": 565,
-      "[SKILL_W]": 566,
-      "[SLIGHTLY_MAGICAL_FOOTWEAR]": 567,
-      "[SOLSTICE_SLEIGH]": 568,
-      "[SORCERERS_SHOES]": 569,
-      "[SPEAR_OF_SHOJIN]": 570,
-      "[SPECIAL_DOUBLE_KILL]": 571,
-      "[SPECIAL_KILL_ACE]": 572,
-      "[SPECIAL_KILL_FIRST_BLOOD]": 573,
-      "[SPECIAL_PENTA_KILL]": 574,
-      "[SPECIAL_QUADRA_KILL]": 575,
-      "[SPECIAL_TRIPLE_KILL]": 576,
-      "[SPECTRES_COWL]": 577,
-      "[SPELLSLINGERS_SHOES]": 578,
-      "[SPIRIT_VISAGE]": 579,
-      "[STAFF_OF_FLOWING_WATER]": 580,
-      "[STATIKK_SHIV]": 581,
-      "[STEALTH_WARD]": 582,
-      "[STEEL_SIGIL]": 583,
-      "[STERAKS_GAGE]": 584,
-      "[STORMSURGE]": 585,
-      "[STRIDEBREAKER]": 586,
-      "[SUNDERED_SKY]": 587,
-      "[SUNFIRE_AEGIS]": 588,
-      "[SWIFTMARCH]": 589,
-      "[SYMBIOTIC_SOLES]": 590,
-      "[SYNCHRONIZED_SOULS]": 591,
-      "[TEAM100]": 592,
-      "[TEAM200]": 593,
-      "[TEAR_OF_THE_GODDESS]": 594,
-      "[TERMINUS]": 595,
-      "[THE_BRUTALIZER]": 596,
-      "[THE_COLLECTOR]": 597,
-      "[THORNMAIL]": 598,
-      "[TIAMAT]": 599,
-      "[TITANIC_HYDRA]": 600,
-      "[TOP_LANE]": 601,
-      "[TOTAL_BISCUIT_OF_EVERLASTING_WILL]": 602,
-      "[TOWER]": 603,
-      "[TRAILBLAZER]": 604,
-      "[TRINITY_FORCE]": 605,
-      "[TUNNELER]": 606,
-      "[UMBRAL_GLAIVE]": 607,
-      "[UNDEFINED]": 608,
-      "[UNENDING_DESPAIR]": 609,
-      "[UNKNOWN_2001]": 610,
-      "[UNKNOWN_WARD]": 611,
-      "[VAMPIRIC_SCEPTER]": 612,
-      "[VERDANT_BARRIER]": 613,
-      "[VIGILANT_WARDSTONE]": 614,
-      "[VOID_STAFF]": 615,
-      "[VOLTAIC_CYCLOSWORD]": 616,
-      "[WARDENS_MAIL]": 617,
-      "[WARD_KILL]": 618,
-      "[WARD_PLACE]": 619,
-      "[WARMOGS_ARMOR]": 620,
-      "[WATCHFUL_WARDSTONE]": 621,
-      "[WATER_DRAGON]": 622,
-      "[WINGED_MOONPLATE]": 623,
-      "[WINTERS_APPROACH]": 624,
-      "[WITS_END]": 625,
-      "[WORLD_ATLAS]": 626,
-      "[YELLOW]": 627,
-      "[YOUMUUS_GHOSTBLADE]": 628,
-      "[YOUR_CUT]": 629,
-      "[YUN_TAL_WILDARROWS]": 630,
-      "[ZAZZAKS_REALMSPIKE]": 631,
-      "[ZEAL]": 632,
-      "[ZEKES_CONVERGENCE]": 633,
-      "[ZHONYAS_HOURGLASS]": 634
+      "[BOTTOM_B]": 366,
+      "[BOTTOM_R]": 367,
+      "[BOT_LANE]": 368,
+      "[BOUNTY]": 369,
+      "[BOUNTY_OF_WORLDS]": 370,
+      "[BRAMBLE_VEST]": 371,
+      "[BUILDING_DESTROY]": 372,
+      "[BUILDING_PLATE]": 373,
+      "[B_F_SWORD]": 374,
+      "[CATALYST_OF_AEONS]": 375,
+      "[CAULFIELDS_WARHAMMER]": 376,
+      "[CELESTIAL_OPPOSITION]": 377,
+      "[CHAINLACED_CRUSHERS]": 378,
+      "[CHAIN_VEST]": 379,
+      "[CHEMPUNK_CHAINSWORD]": 380,
+      "[CHEMTECH_DRAGON]": 381,
+      "[CLOAK_OF_AGILITY]": 382,
+      "[CLOTH_ARMOR]": 383,
+      "[CONTROL]": 384,
+      "[CONTROL_WARD]": 385,
+      "[COSMIC_DRIVE]": 386,
+      "[CRIMSON_LUCIDITY]": 387,
+      "[CRYPTBLOOM]": 388,
+      "[CRYSTALLINE_BRACER]": 389,
+      "[CULL]": 390,
+      "[DAGGER]": 391,
+      "[DARK_SEAL]": 392,
+      "[DAWNCORE]": 393,
+      "[DEAD_MANS_PLATE]": 394,
+      "[DEATHS_DANCE]": 395,
+      "[DORANS_BLADE]": 396,
+      "[DORANS_RING]": 397,
+      "[DORANS_SHIELD]": 398,
+      "[DREAM_MAKER]": 399,
+      "[EARTH_DRAGON]": 400,
+      "[ECHOES_OF_HELIA]": 401,
+      "[ECLIPSE]": 402,
+      "[EDGE_OF_NIGHT]": 403,
+      "[ELDER_DRAGON]": 404,
+      "[ELIXIR_OF_AVARICE]": 405,
+      "[ELIXIR_OF_FORCE]": 406,
+      "[ELIXIR_OF_IRON]": 407,
+      "[ELIXIR_OF_SKILL]": 408,
+      "[ELIXIR_OF_SORCERY]": 409,
+      "[ELIXIR_OF_WRATH]": 410,
+      "[EMPTY]": 411,
+      "[ESSENCE_REAVER]": 412,
+      "[EXECUTIONERS_CALLING]": 413,
+      "[EXPERIMENTAL_HEXPLATE]": 414,
+      "[EYE_OF_THE_HERALD]": 415,
+      "[FAERIE_CHARM]": 416,
+      "[FARSIGHT_ALTERATION]": 417,
+      "[FATED_ASHES]": 418,
+      "[FIENDISH_CODEX]": 419,
+      "[FIMBULWINTER]": 420,
+      "[FIRE_DRAGON]": 421,
+      "[FORBIDDEN_IDOL]": 422,
+      "[FORCE_OF_NATURE]": 423,
+      "[FOREVER_FORWARD]": 424,
+      "[FRAME]": 425,
+      "[FROZEN_HEART]": 426,
+      "[GAME_END]": 427,
+      "[GAME_START]": 428,
+      "[GIANTS_BELT]": 429,
+      "[GLACIAL_BUCKLER]": 430,
+      "[GLOWING_MOTE]": 431,
+      "[GUARDIAN_ANGEL]": 432,
+      "[GUINSOOS_RAGEBLADE]": 433,
+      "[GUNMETAL_GREAVES]": 434,
+      "[GUSTWALKER_HATCHLING]": 435,
+      "[HAUNTING_GUISE]": 436,
+      "[HEALTH_POTION]": 437,
+      "[HEARTHBOUND_AXE]": 438,
+      "[HEARTSTEEL]": 439,
+      "[HEXDRINKER]": 440,
+      "[HEXTECH_ALTERNATOR]": 441,
+      "[HEXTECH_DRAGON]": 442,
+      "[HEXTECH_ROCKETBELT]": 443,
+      "[HOLLOW_RADIANCE]": 444,
+      "[HORIZON_FOCUS]": 445,
+      "[HUBRIS]": 446,
+      "[HULLBREAKER]": 447,
+      "[ICEBORN_GAUNTLET]": 448,
+      "[IMMORTAL_SHIELDBOW]": 449,
+      "[IMPERIAL_MANDATE]": 450,
+      "[INFINITY_EDGE]": 451,
+      "[INHIBITOR]": 452,
+      "[INNER]": 453,
+      "[IONIAN_BOOTS_OF_LUCIDITY]": 454,
+      "[ITEM_BUY]": 455,
+      "[ITEM_SELL]": 456,
+      "[ITEM_UNDO]": 457,
+      "[ITEM_USE]": 458,
+      "[JAKSHO,_THE_PROTEAN]": 459,
+      "[JUNGLE_B]": 460,
+      "[JUNGLE_R]": 461,
+      "[KAENIC_ROOKERN]": 462,
+      "[KALISTAS_BLACK_SPEAR]": 463,
+      "[KILL]": 464,
+      "[KINDLEGEM]": 465,
+      "[KNIGHTS_VOW]": 466,
+      "[KRAKEN_SLAYER]": 467,
+      "[LAST_WHISPER]": 468,
+      "[LEVEL_UP]": 469,
+      "[LIANDRYS_TORMENT]": 470,
+      "[LICH_BANE]": 471,
+      "[LOCKET_OF_THE_IRON_SOLARI]": 472,
+      "[LONG_SWORD]": 473,
+      "[LORD_DOMINIKS_REGARDS]": 474,
+      "[LOST_CHAPTER]": 475,
+      "[LUDENS_COMPANION]": 476,
+      "[MALIGNANCE]": 477,
+      "[MANAMUNE]": 478,
+      "[MAW_OF_MALMORTIUS]": 479,
+      "[MEJAIS_SOULSTEALER]": 480,
+      "[MERCURIAL_SCIMITAR]": 481,
+      "[MERCURYS_TREADS]": 482,
+      "[MIDDLE_B]": 483,
+      "[MIDDLE_R]": 484,
+      "[MID_LANE]": 485,
+      "[MIKAELS_BLESSING]": 486,
+      "[MONSTER_ATAKHAN]": 487,
+      "[MONSTER_BARON_NASHOR]": 488,
+      "[MONSTER_DRAGON]": 489,
+      "[MONSTER_HORDE]": 490,
+      "[MONSTER_RIFTHERALD]": 491,
+      "[MOONSTONE_RENEWER]": 492,
+      "[MORELLONOMICON]": 493,
+      "[MORTAL_REMINDER]": 494,
+      "[MOSSTOMPER_SEEDLING]": 495,
+      "[MURAMANA]": 496,
+      "[NASHORS_TOOTH]": 497,
+      "[NAVORI_FLICKERBLADE]": 498,
+      "[NEEDLESSLY_LARGE_ROD]": 499,
+      "[NEGATRON_CLOAK]": 500,
+      "[NEXUS]": 501,
+      "[NOONQUIVER]": 502,
+      "[NULL_MAGIC_MANTLE]": 503,
+      "[OBLIVION_ORB]": 504,
+      "[OPPORTUNITY]": 505,
+      "[ORACLE_LENS]": 506,
+      "[OUTER]": 507,
+      "[OVERLORDS_BLOODMAIL]": 508,
+      "[P0]": 509,
+      "[PHAGE]": 510,
+      "[PHANTOM_DANCER]": 511,
+      "[PICKAXE]": 512,
+      "[PLATED_STEELCAPS]": 513,
+      "[PNone]": 514,
+      "[PROFANE_HYDRA]": 515,
+      "[P]": 516,
+      "[QUICKSILVER_SASH]": 517,
+      "[RABADONS_DEATHCAP]": 518,
+      "[RANDUINS_OMEN]": 519,
+      "[RANK_BRONZE]": 520,
+      "[RANK_CHALLENGER]": 521,
+      "[RANK_DIAMOND]": 522,
+      "[RANK_EMERALD]": 523,
+      "[RANK_GOLD]": 524,
+      "[RANK_GRANDMASTER]": 525,
+      "[RANK_IRON]": 526,
+      "[RANK_MASTER]": 527,
+      "[RANK_PLATINUM]": 528,
+      "[RANK_SILVER]": 529,
+      "[RAPID_FIRECANNON]": 530,
+      "[RAVENOUS_HYDRA]": 531,
+      "[RECTRIX]": 532,
+      "[RECURVE_BOW]": 533,
+      "[REDEMPTION]": 534,
+      "[REFILLABLE_POTION]": 535,
+      "[REJUVENATION_BEAD]": 536,
+      "[RIFTMAKER]": 537,
+      "[ROD_OF_AGES]": 538,
+      "[RUBY_CRYSTAL]": 539,
+      "[RUNAANS_HURRICANE]": 540,
+      "[RUNIC_COMPASS]": 541,
+      "[RYLAIS_CRYSTAL_SCEPTER]": 542,
+      "[SAPPHIRE_CRYSTAL]": 543,
+      "[SCARECROW_EFFIGY]": 544,
+      "[SCORCHCLAW_PUP]": 545,
+      "[SCOUTS_SLINGSHOT]": 546,
+      "[SEEKERS_ARMGUARD]": 547,
+      "[SERAPHS_EMBRACE]": 548,
+      "[SERPENTS_FANG]": 549,
+      "[SERRATED_DIRK]": 550,
+      "[SERYLDAS_GRUDGE]": 551,
+      "[SHADOWFLAME]": 552,
+      "[SHATTERED_ARMGUARD]": 553,
+      "[SHEEN]": 554,
+      "[SHURELYAS_BATTLESONG]": 555,
+      "[SIGHT]": 556,
+      "[SKILL_E]": 557,
+      "[SKILL_Q]": 558,
+      "[SKILL_R]": 559,
+      "[SKILL_UP]": 560,
+      "[SKILL_W]": 561,
+      "[SLIGHTLY_MAGICAL_FOOTWEAR]": 562,
+      "[SOLSTICE_SLEIGH]": 563,
+      "[SORCERERS_SHOES]": 564,
+      "[SPEAR_OF_SHOJIN]": 565,
+      "[SPECIAL_DOUBLE_KILL]": 566,
+      "[SPECIAL_KILL_ACE]": 567,
+      "[SPECIAL_KILL_FIRST_BLOOD]": 568,
+      "[SPECIAL_PENTA_KILL]": 569,
+      "[SPECIAL_QUADRA_KILL]": 570,
+      "[SPECIAL_TRIPLE_KILL]": 571,
+      "[SPECTRES_COWL]": 572,
+      "[SPELLSLINGERS_SHOES]": 573,
+      "[SPIRIT_VISAGE]": 574,
+      "[STAFF_OF_FLOWING_WATER]": 575,
+      "[STATIKK_SHIV]": 576,
+      "[STEALTH_WARD]": 577,
+      "[STEEL_SIGIL]": 578,
+      "[STERAKS_GAGE]": 579,
+      "[STORMSURGE]": 580,
+      "[STRIDEBREAKER]": 581,
+      "[SUNDERED_SKY]": 582,
+      "[SUNFIRE_AEGIS]": 583,
+      "[SWIFTMARCH]": 584,
+      "[SYMBIOTIC_SOLES]": 585,
+      "[SYNCHRONIZED_SOULS]": 586,
+      "[TEAM100]": 587,
+      "[TEAM200]": 588,
+      "[TEAR_OF_THE_GODDESS]": 589,
+      "[TERMINUS]": 590,
+      "[THE_BRUTALIZER]": 591,
+      "[THE_COLLECTOR]": 592,
+      "[THORNMAIL]": 593,
+      "[TIAMAT]": 594,
+      "[TITANIC_HYDRA]": 595,
+      "[TOP_B]": 596,
+      "[TOP_LANE]": 597,
+      "[TOP_R]": 598,
+      "[TOTAL_BISCUIT_OF_EVERLASTING_WILL]": 599,
+      "[TOWER]": 600,
+      "[TRAILBLAZER]": 601,
+      "[TRINITY_FORCE]": 602,
+      "[TUNNELER]": 603,
+      "[UMBRAL_GLAIVE]": 604,
+      "[UNDEFINED]": 605,
+      "[UNENDING_DESPAIR]": 606,
+      "[UNKNOWN_2001]": 607,
+      "[UNKNOWN_WARD]": 608,
+      "[UTILITY_B]": 609,
+      "[UTILITY_R]": 610,
+      "[VAMPIRIC_SCEPTER]": 611,
+      "[VERDANT_BARRIER]": 612,
+      "[VIGILANT_WARDSTONE]": 613,
+      "[VOID_STAFF]": 614,
+      "[VOLTAIC_CYCLOSWORD]": 615,
+      "[WARDENS_MAIL]": 616,
+      "[WARD_KILL]": 617,
+      "[WARD_PLACE]": 618,
+      "[WARMOGS_ARMOR]": 619,
+      "[WATCHFUL_WARDSTONE]": 620,
+      "[WATER_DRAGON]": 621,
+      "[WINGED_MOONPLATE]": 622,
+      "[WINTERS_APPROACH]": 623,
+      "[WITS_END]": 624,
+      "[WORLD_ATLAS]": 625,
+      "[YELLOW]": 626,
+      "[YOUMUUS_GHOSTBLADE]": 627,
+      "[YOUR_CUT]": 628,
+      "[YUN_TAL_WILDARROWS]": 629,
+      "[ZAZZAKS_REALMSPIKE]": 630,
+      "[ZEAL]": 631,
+      "[ZEKES_CONVERGENCE]": 632,
+      "[ZHONYAS_HOURGLASS]": 633,
+      "[_B]": 634,
+      "[_R]": 635
     },
     "unk_token": "[UNK]"
   }

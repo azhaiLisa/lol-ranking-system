@@ -48,8 +48,8 @@ hf_tokenizer = PreTrainedTokenizerFast(
 )
 
 # Test with actual format
-test_str = " [WARD_PLACE][PNone][YELLOW] [SKILL_UP][P4][SKILL_Q]"
-print(hf_tokenizer.tokenize(test_str))  # Should now work correctly
+test_str = " [WARD_PLACE][PNone][YELLOW] [SKILL_UP][BOTTOM_B][SKILL_Q]"
+print(hf_tokenizer.tokenize(test_str)) 
 
 # Save
 hf_tokenizer.save_pretrained("./my_tokenizer")

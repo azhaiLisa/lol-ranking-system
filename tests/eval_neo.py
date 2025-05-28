@@ -77,8 +77,10 @@ if torch.any(input_ids >= vocab_size):
 game_start_probs = extract_single_token_probs(sample_text, model, tokenizer, "[GAME_START]")
 frame_probs = extract_single_token_probs(sample_text, model, tokenizer, "[FRAME]")
 game_end_probs = extract_single_token_probs(sample_text, model, tokenizer, "[GAME_END]")
+kill_probs = extract_single_token_probs(sample_text, model, tokenizer, "[KILL]")
 
 # === Plot ===
 plot_event_prob_trends(game_start_probs, "start")
 plot_event_prob_trends(frame_probs, "frame")
 plot_event_prob_trends(game_end_probs, "end")
+plot_event_prob_trends(kill_probs,"kill")

@@ -28,5 +28,5 @@
   "transformers_version": "4.51.3",
   "use_cache": true,
   "use_parallel_residual": true,
-  "vocab_size": 635
+  "vocab_size": 636
 }
