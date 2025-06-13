@@ -1,0 +1,20 @@
+{
+  "unk_token": "[UNK]",
+  "pad_token": "[PAD]",
+  "tokenizer_class": "PreTrainedTokenizerFast",
+  "pre_tokenizer": {
+    "type": "Sequence",
+    "pretokenizers": [
+      {
+        "type": "Split",
+        "pattern": "\\]\\[",
+        "behavior": "isolated"
+      },
+      {
+        "type": "Split",
+        "pattern": "(\\[[^\\[\\]]+?\\])",
+        "behavior": "isolated"
+      }
+    ]
+  }
+}
