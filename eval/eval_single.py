@@ -8,7 +8,7 @@ import re
 
 # Setup
 MODEL_PATH = "../model/lol-model-neox"
-TOKENS_FILE = "../data/cd_tokens.txt"
+TOKENS_FILE = "../data/the_match.txt"
 MATCH_INDEX = 0  # Change if needed
 
 # Load tokenizer
@@ -108,15 +108,29 @@ def evaluate_and_log_events(tokens):
                 role_logits = model(role_tensor).logits[0, -1]
             role_surprises[idx] = compute_role_surprise(role_logits, input_ids[idx])
 
-        for idx, role in role_positions:
-            total = EVENT_WEIGHTS.get(token, 1.0) * (
+        weight = EVENT_WEIGHTS.get(token, 1.0)
+
+        def total_surprise(idx):
+            return weight * (
                 EVENT_ROLE_RATIO * event_surprise + (1 - EVENT_ROLE_RATIO) * role_surprises.get(idx, 0.0)
             )
-            event_logs[role].append((i, token, round(total, 2)))
+
+        if token == "[KILL]" and len(role_positions) >= 2:
+            killer_idx, killer = role_positions[0]
+            victim_idx, victim = role_positions[1]
+            event_logs[killer].append((i, token, round(total_surprise(killer_idx), 2)))
+            event_logs[victim].append((i, token, round(-total_surprise(victim_idx), 2)))  # negative
+        elif token == "[ASSIST]":
+            for idx, role in role_positions:
+                score = 0.5 * total_surprise(idx)
+                event_logs[role].append((i, token, round(score, 2)))
+        else:
+            for idx, role in role_positions:
+                event_logs[role].append((i, token, round(total_surprise(idx), 2)))
 
     return event_logs
 
-# --- Main ---
+# Main
 if __name__ == "__main__":
     with open(TOKENS_FILE, "r", encoding="utf-8") as f:
         eval_dataset = [line.strip() for line in f]
@@ -124,12 +138,18 @@ if __name__ == "__main__":
     tokens = hf_tokenizer.tokenize(eval_dataset[MATCH_INDEX])
     event_logs = evaluate_and_log_events(tokens)
 
-    print(f"\n🔍 Top 3 Surprise Events Per Team Player (Match ID {MATCH_INDEX}):\n")
+    print(f"\n🔍 Top Surprise Events Per Team Player (Match ID {MATCH_INDEX}):\n")
     for role in sorted(ROLE_TOKENS):
-        events = sorted(event_logs.get(role, []), key=lambda x: -x[2])[:10]
+        events = event_logs.get(role, [])
+        if not events:
+            print(f"{role}: No surprise events found")
+            continue
+
+        top_positive = sorted([e for e in events if e[2] > 0], key=lambda x: -x[2])[:10]
+        top_negative = sorted([e for e in events if e[2] < 0], key=lambda x: x[2])[:10]
+
         print(f"{role}:")
-        if events:
-            for idx, evt, score in events:
-                print(f"   • {evt} at token {idx} → Surprise Score = {score}")
-        else:
-            print("   • No surprise events found")
+        for idx, evt, score in top_positive:
+            print(f"   ▲ {evt} at token {idx} → Surprise Score = {score}")
+        for idx, evt, score in top_negative:
+            print(f"   ▼ {evt} at token {idx} → Surprise Score = {score}")
